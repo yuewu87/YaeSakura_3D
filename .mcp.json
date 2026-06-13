@@ -3,6 +3,10 @@
     "funplay": {
       "type": "http",
       "url": "http://127.0.0.1:8766/"
+    },
+    "blender": {
+      "command": "cmd",
+      "args": ["/c", "uvx", "blender-mcp"]
     }
   }
 }
