@@ -33,7 +33,7 @@ namespace YaeSakura
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[TTS] Connection failed: {ex.Message}");
+                Debug.LogWarning($"[TTS] GPT-SoVITS not running ({ex.Message})");
             }
         }
 

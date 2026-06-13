@@ -67,12 +67,23 @@ namespace YaeSakura
             titleTRT.anchorMin = Vector2.zero; titleTRT.anchorMax = Vector2.one;
             titleTRT.offsetMin = new Vector2(10, 0); titleTRT.offsetMax = Vector2.zero;
 
+            // === Chat Container Panel (半透明卡片包裹对话和输入) ===
+            var containerGO = new GameObject("ChatContainer");
+            containerGO.transform.SetParent(transform, false);
+            var containerRT = containerGO.AddComponent<RectTransform>();
+            containerRT.anchorMin = new Vector2(0, 0.08f);
+            containerRT.anchorMax = new Vector2(1, 0.92f);
+            containerRT.offsetMin = new Vector2(6, 0);
+            containerRT.offsetMax = new Vector2(-6, -4);
+            var containerBg = containerGO.AddComponent<UnityEngine.UI.Image>();
+            containerBg.color = new Color(0.05f, 0.10f, 0.15f, 0.5f); // rgba(13,26,38,0.5)
+
             // === ScrollView ===
             var scrollGO = new GameObject("ScrollView");
-            scrollGO.transform.SetParent(transform, false);
+            scrollGO.transform.SetParent(containerGO.transform, false);
             var scrollRT = scrollGO.AddComponent<RectTransform>();
-            scrollRT.anchorMin = new Vector2(0, 0.09f);
-            scrollRT.anchorMax = new Vector2(1, 0.92f);
+            scrollRT.anchorMin = new Vector2(0, 0.10f);
+            scrollRT.anchorMax = new Vector2(1, 1);
             scrollRT.offsetMin = Vector2.zero;
             scrollRT.offsetMax = Vector2.zero;
             scrollRect = scrollGO.AddComponent<ScrollRect>();
@@ -105,10 +116,10 @@ namespace YaeSakura
 
             // === Input area ===
             var inputGO = new GameObject("InputField");
-            inputGO.transform.SetParent(transform, false);
+            inputGO.transform.SetParent(containerGO.transform, false);
             var inputRT = inputGO.AddComponent<RectTransform>();
-            inputRT.anchorMin = new Vector2(0, 0.005f);
-            inputRT.anchorMax = new Vector2(0.79f, 0.085f);
+            inputRT.anchorMin = new Vector2(0, 0);
+            inputRT.anchorMax = new Vector2(0.79f, 0.10f);
             inputRT.offsetMin = new Vector2(12, 2); inputRT.offsetMax = new Vector2(-4, -2);
             inputField = inputGO.AddComponent<InputField>();
 
@@ -142,10 +153,10 @@ namespace YaeSakura
 
             // === Send Button ===
             var btnGO = new GameObject("SendButton");
-            btnGO.transform.SetParent(transform, false);
+            btnGO.transform.SetParent(containerGO.transform, false);
             var btnRT = btnGO.AddComponent<RectTransform>();
-            btnRT.anchorMin = new Vector2(0.8f, 0.005f);
-            btnRT.anchorMax = new Vector2(0.98f, 0.085f);
+            btnRT.anchorMin = new Vector2(0.8f, 0);
+            btnRT.anchorMax = new Vector2(0.98f, 0.10f);
             btnRT.offsetMin = new Vector2(4, 2); btnRT.offsetMax = new Vector2(-8, -2);
             sendButton = btnGO.AddComponent<Button>();
             var btnBg = btnGO.AddComponent<UnityEngine.UI.Image>();
