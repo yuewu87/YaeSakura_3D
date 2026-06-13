@@ -18,25 +18,60 @@ namespace YaeSakura
         public bool IsStreaming => _isStreaming;
         public System.Action<string> OnSendMessage;
 
-        private Color userBubbleColor = new Color(0.16f, 0.23f, 0.35f);
-        private Color characterBubbleColor = new Color(0.23f, 0.1f, 0.23f);
-        private Color actionLineColor = new Color(0.6f, 0.6f, 0.65f);
-        private Color userTextColor = new Color(0.85f, 0.85f, 0.9f);
-        private Color charTextColor = new Color(0.93f, 0.82f, 0.88f);
+        // 2D-version matching colors
+        private static Color BgDark    = new Color(0.102f, 0.102f, 0.180f); // #1a1a2e
+        private static Color AssistBg  = new Color(1f, 0.784f, 0.843f, 0.30f);
+        private static Color UserBg    = new Color(1f, 1f, 1f, 0.12f);
+        private static Color AssistText= new Color(1f, 0.910f, 0.933f); // #ffe8ee
+        private static Color UserText  = new Color(0.867f, 0.867f, 0.867f); // #ddd
+        private static Color ActionText= new Color(1f, 0.784f, 0.824f, 0.55f);
+        private static Color InputBg   = new Color(1f, 1f, 1f, 0.06f);
+        private static Color InputBorder= new Color(1f, 1f, 1f, 0.10f);
+        private static Color SendBg    = new Color(1f, 0.588f, 0.667f, 0.25f);
+        private static Color TimeText  = new Color(1f, 1f, 1f, 0.25f);
+        private static Color TitleText = new Color(1f, 1f, 1f, 0.5f);
+        private static Color TitleBg   = new Color(0.047f, 0.039f, 0.086f, 0.60f);
+
+        private Font _font;
 
         private void Start()
         {
+            _font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             CreateUI();
             sendButton.onClick.AddListener(SendMessage);
         }
 
         private void CreateUI()
         {
-            // ScrollView
+            // === Title Bar ===
+            var titleGO = new GameObject("TitleBar");
+            titleGO.transform.SetParent(transform, false);
+            var titleRT = titleGO.AddComponent<RectTransform>();
+            titleRT.anchorMin = new Vector2(0, 0.92f);
+            titleRT.anchorMax = new Vector2(1, 1);
+            titleRT.offsetMin = Vector2.zero;
+            titleRT.offsetMax = Vector2.zero;
+            var titleBg = titleGO.AddComponent<UnityEngine.UI.Image>();
+            titleBg.color = TitleBg;
+
+            var titleTextGO = new GameObject("Title");
+            titleTextGO.transform.SetParent(titleGO.transform, false);
+            var titleT = titleTextGO.AddComponent<UnityEngine.UI.Text>();
+            titleT.text = "八重樱 · 圣痕之庭";
+            titleT.font = _font;
+            titleT.fontSize = 14;
+            titleT.fontStyle = FontStyle.Bold;
+            titleT.color = TitleText;
+            titleT.alignment = TextAnchor.MiddleLeft;
+            var titleTRT = titleTextGO.GetComponent<RectTransform>();
+            titleTRT.anchorMin = Vector2.zero; titleTRT.anchorMax = Vector2.one;
+            titleTRT.offsetMin = new Vector2(10, 0); titleTRT.offsetMax = Vector2.zero;
+
+            // === ScrollView ===
             var scrollGO = new GameObject("ScrollView");
             scrollGO.transform.SetParent(transform, false);
             var scrollRT = scrollGO.AddComponent<RectTransform>();
-            scrollRT.anchorMin = new Vector2(0, 0.1f);
+            scrollRT.anchorMin = new Vector2(0, 0.09f);
             scrollRT.anchorMax = new Vector2(1, 0.92f);
             scrollRT.offsetMin = Vector2.zero;
             scrollRT.offsetMax = Vector2.zero;
@@ -57,8 +92,8 @@ namespace YaeSakura
             contentRoot.sizeDelta = new Vector2(0, 0);
             var vlg = content.AddComponent<VerticalLayoutGroup>();
             vlg.childAlignment = TextAnchor.UpperLeft;
-            vlg.spacing = 6;
-            vlg.padding = new RectOffset(8, 8, 8, 8);
+            vlg.spacing = 8;
+            vlg.padding = new RectOffset(12, 12, 8, 8);
             vlg.childForceExpandWidth = true;
             vlg.childForceExpandHeight = false;
             content.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
@@ -68,23 +103,24 @@ namespace YaeSakura
             scrollRect.horizontal = false;
             scrollRect.movementType = ScrollRect.MovementType.Clamped;
 
-            // InputField
+            // === Input area ===
             var inputGO = new GameObject("InputField");
             inputGO.transform.SetParent(transform, false);
             var inputRT = inputGO.AddComponent<RectTransform>();
-            inputRT.anchorMin = new Vector2(0, 0); inputRT.anchorMax = new Vector2(0.78f, 0.08f);
-            inputRT.offsetMin = new Vector2(8, 4); inputRT.offsetMax = new Vector2(-4, -4);
+            inputRT.anchorMin = new Vector2(0, 0.005f);
+            inputRT.anchorMax = new Vector2(0.79f, 0.085f);
+            inputRT.offsetMin = new Vector2(12, 2); inputRT.offsetMax = new Vector2(-4, -2);
             inputField = inputGO.AddComponent<InputField>();
 
             var textGO = new GameObject("Text");
             textGO.transform.SetParent(inputGO.transform, false);
             var textRT = textGO.AddComponent<RectTransform>();
             textRT.anchorMin = Vector2.zero; textRT.anchorMax = Vector2.one;
-            textRT.offsetMin = new Vector2(8, 4); textRT.offsetMax = new Vector2(-8, -4);
+            textRT.offsetMin = new Vector2(12, 3); textRT.offsetMax = new Vector2(-12, -3);
             var text = textGO.AddComponent<UnityEngine.UI.Text>();
-            text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            text.font = _font;
             text.fontSize = 16;
-            text.color = new Color(0.85f, 0.85f, 0.9f);
+            text.color = UserText;
             text.alignment = TextAnchor.MiddleLeft;
             text.supportRichText = false;
             inputField.textComponent = text;
@@ -94,77 +130,134 @@ namespace YaeSakura
             phGO.transform.SetParent(inputGO.transform, false);
             var phRT = phGO.AddComponent<RectTransform>();
             phRT.anchorMin = Vector2.zero; phRT.anchorMax = Vector2.one;
-            phRT.offsetMin = new Vector2(8, 4); phRT.offsetMax = new Vector2(-8, -4);
+            phRT.offsetMin = new Vector2(14, 3); phRT.offsetMax = new Vector2(-14, -3);
             var ph = phGO.AddComponent<UnityEngine.UI.Text>();
             ph.text = "输入消息...";
-            ph.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            ph.fontSize = 16;
+            ph.font = _font;
+            ph.fontSize = 14;
             ph.fontStyle = FontStyle.Italic;
-            ph.color = new Color(0.5f, 0.5f, 0.55f);
+            ph.color = new Color(1f, 1f, 1f, 0.3f);
             ph.alignment = TextAnchor.MiddleLeft;
             inputField.placeholder = ph;
 
-            // Send Button
+            // === Send Button ===
             var btnGO = new GameObject("SendButton");
             btnGO.transform.SetParent(transform, false);
             var btnRT = btnGO.AddComponent<RectTransform>();
-            btnRT.anchorMin = new Vector2(0.8f, 0); btnRT.anchorMax = new Vector2(1, 0.08f);
-            btnRT.offsetMin = new Vector2(2, 4); btnRT.offsetMax = new Vector2(-8, -4);
+            btnRT.anchorMin = new Vector2(0.8f, 0.005f);
+            btnRT.anchorMax = new Vector2(0.98f, 0.085f);
+            btnRT.offsetMin = new Vector2(4, 2); btnRT.offsetMax = new Vector2(-8, -2);
             sendButton = btnGO.AddComponent<Button>();
+            var btnBg = btnGO.AddComponent<UnityEngine.UI.Image>();
+            btnBg.color = SendBg;
 
             var btnTextGO = new GameObject("Text");
             btnTextGO.transform.SetParent(btnGO.transform, false);
             var btnTextRT = btnTextGO.AddComponent<RectTransform>();
             btnTextRT.anchorMin = Vector2.zero; btnTextRT.anchorMax = Vector2.one;
-            btnTextRT.sizeDelta = Vector2.zero;
             var btnText = btnTextGO.AddComponent<UnityEngine.UI.Text>();
             btnText.text = "发送";
-            btnText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            btnText.font = _font;
             btnText.fontSize = 16;
-            btnText.color = Color.white;
+            btnText.color = new Color(1f, 1f, 1f, 0.8f);
             btnText.alignment = TextAnchor.MiddleCenter;
         }
 
         public void AddBubble(string text, bool isUser)
         {
             if (contentRoot == null) return;
+            // Wrapper
+            var wrapper = new GameObject("Wrapper");
+            wrapper.transform.SetParent(contentRoot, false);
+            var wLE = wrapper.AddComponent<LayoutElement>();
+            wLE.minWidth = 200;
+
+            // Name label
+            var nameGO = new GameObject("Name");
+            nameGO.transform.SetParent(wrapper.transform, false);
+            var nameT = nameGO.AddComponent<UnityEngine.UI.Text>();
+            nameT.text = isUser ? "旅人" : "八重樱";
+            nameT.font = _font;
+            nameT.fontSize = 12;
+            nameT.color = isUser ? new Color(0.6f, 0.6f, 0.6f, 0.5f) : new Color(1f, 0.718f, 0.773f, 0.6f);
+            nameT.alignment = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
+            var nameRT = nameGO.GetComponent<RectTransform>();
+            nameRT.anchorMin = new Vector2(0, 1); nameRT.anchorMax = new Vector2(1, 1);
+            nameRT.sizeDelta = new Vector2(0, 14);
+            nameRT.anchoredPosition = Vector2.zero;
+
+            // Bubble
             var go = new GameObject("Bubble");
-            go.transform.SetParent(contentRoot, false);
+            go.transform.SetParent(wrapper.transform, false);
             var t = go.AddComponent<UnityEngine.UI.Text>();
             t.text = text;
-            t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            t.font = _font;
             t.fontSize = 16;
-            t.color = isUser ? userTextColor : charTextColor;
+            t.color = isUser ? UserText : AssistText;
             t.alignment = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;
-            t.verticalOverflow = VerticalWrapMode.Truncate;
             var fitter = go.AddComponent<ContentSizeFitter>();
             fitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
             fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var layout = go.AddComponent<LayoutElement>();
-            layout.minWidth = 200;
-            layout.preferredWidth = contentRoot.rect.width * 0.7f;
 
-            _bubbles.Add(go);
+            // Offset: user bubbles shift right
+            var bubbleRT = go.GetComponent<RectTransform>();
+            float maxW = contentRoot.rect.width * 0.7f;
+            var le = go.AddComponent<LayoutElement>();
+            le.minWidth = 200;
+            le.preferredWidth = maxW;
+            if (isUser)
+            {
+                bubbleRT.anchorMin = new Vector2(1, 1); bubbleRT.anchorMax = new Vector2(1, 1);
+                bubbleRT.pivot = new Vector2(1, 1);
+                bubbleRT.anchoredPosition = new Vector2(0, -14);
+            }
+            else
+            {
+                bubbleRT.anchorMin = new Vector2(0, 1); bubbleRT.anchorMax = new Vector2(0, 1);
+                bubbleRT.pivot = new Vector2(0, 1);
+                bubbleRT.anchoredPosition = new Vector2(0, -14);
+            }
+
+            // Background using Image (if available)
+            var bg = go.AddComponent<UnityEngine.UI.Image>();
+            if (bg != null) bg.color = isUser ? UserBg : AssistBg;
+
+            _bubbles.Add(wrapper);
             ScrollToBottom();
         }
 
         public void AddActionLine(string text)
         {
+            if (contentRoot == null) return;
             var go = new GameObject("ActionLine");
             go.transform.SetParent(contentRoot, false);
             var t = go.AddComponent<UnityEngine.UI.Text>();
             t.text = text;
-            t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            t.font = _font;
             t.fontSize = 14;
             t.fontStyle = FontStyle.Italic;
-            t.color = actionLineColor;
+            t.color = ActionText;
             t.alignment = TextAnchor.MiddleCenter;
-            var fitter2 = go.AddComponent<ContentSizeFitter>();
-            fitter2.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            fitter2.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var layout2 = go.AddComponent<LayoutElement>();
-            layout2.minWidth = 200;
+            go.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var le = go.AddComponent<LayoutElement>();
+            le.minWidth = 200;
+            _bubbles.Add(go);
+            ScrollToBottom();
+        }
+
+        public void AddTimeDivider(string text)
+        {
+            if (contentRoot == null) return;
+            var go = new GameObject("TimeDivider");
+            go.transform.SetParent(contentRoot, false);
+            var t = go.AddComponent<UnityEngine.UI.Text>();
+            t.text = "━━  " + text + "  ━━";
+            t.font = _font;
+            t.fontSize = 12;
+            t.color = TimeText;
+            t.alignment = TextAnchor.MiddleCenter;
+            go.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
             _bubbles.Add(go);
             ScrollToBottom();
         }
@@ -176,26 +269,21 @@ namespace YaeSakura
             go.transform.SetParent(contentRoot, false);
             _currentStreamBubble = go.AddComponent<UnityEngine.UI.Text>();
             _currentStreamBubble.text = "";
-            _currentStreamBubble.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            _currentStreamBubble.font = _font;
             _currentStreamBubble.fontSize = 16;
-            _currentStreamBubble.color = charTextColor;
+            _currentStreamBubble.color = AssistText;
             _currentStreamBubble.alignment = TextAnchor.MiddleLeft;
-            var fitter3 = go.AddComponent<ContentSizeFitter>();
-            fitter3.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            fitter3.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var layout3 = go.AddComponent<LayoutElement>();
-            layout3.minWidth = 200;
-            layout3.preferredWidth = contentRoot.rect.width * 0.7f;
+            go.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var le = go.AddComponent<LayoutElement>();
+            le.minWidth = 200;
+            le.preferredWidth = contentRoot.rect.width * 0.7f;
             _bubbles.Add(go);
             return _currentStreamBubble;
         }
 
         public void AppendStream(string chunk)
         {
-            if (_currentStreamBubble != null)
-            {
-                _currentStreamBubble.text += chunk;
-            }
+            if (_currentStreamBubble != null) _currentStreamBubble.text += chunk;
             ScrollToBottom();
         }
 
@@ -213,8 +301,7 @@ namespace YaeSakura
 
         public void ClearAll()
         {
-            foreach (var b in _bubbles)
-                Destroy(b);
+            foreach (var b in _bubbles) Destroy(b);
             _bubbles.Clear();
             _currentStreamBubble = null;
         }
@@ -231,12 +318,10 @@ namespace YaeSakura
 
         private void Update()
         {
-            if (inputField.isFocused && Input.GetKeyDown(KeyCode.Return))
+            if (inputField != null && inputField.isFocused && Input.GetKeyDown(KeyCode.Return))
             {
                 if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
-                {
                     SendMessage();
-                }
             }
         }
     }
