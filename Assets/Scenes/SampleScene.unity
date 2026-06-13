@@ -7627,8 +7627,68 @@ PrefabInstance:
     - {fileID: -2493084442291358674, guid: 3501563224d68cd4982095498c5d5547, type: 3}
     - {fileID: -3225704193727686213, guid: 3501563224d68cd4982095498c5d5547, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 921317115}
+    - targetCorrespondingSourceObject: {fileID: 6609292474720396084, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 921317116}
   m_SourcePrefab: {fileID: 100100000, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+--- !u!1 &921317112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+  m_PrefabInstance: {fileID: 921317111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &921317113 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+  m_PrefabInstance: {fileID: 921317111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &921317114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6609292474720396084, guid: 3501563224d68cd4982095498c5d5547, type: 3}
+  m_PrefabInstance: {fileID: 921317111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &921317115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921317112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc0a352f61798842ad71977b08af6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1182900735}
+  skinnedMesh: {fileID: 921317113}
+  mouthBlendShapeIndex: 27
+  sensitivity: 3
+  smoothSpeed: 10
+  minThreshold: 0.01
+--- !u!95 &921317116
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921317114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1480610788d3d1458f1b8bc9c3a0b0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!21 &925802642
 Material:
   serializedVersion: 8
