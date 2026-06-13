@@ -248,30 +248,44 @@ namespace YaeSakura
             nRT.sizeDelta = new Vector2(200, 13);
             nRT.anchoredPosition = isUser ? new Vector2(0, 0) : new Vector2(0, 0);
 
-            // Bubble text
+            // Bubble text with background
             var bubble = new GameObject("Bubble");
             bubble.transform.SetParent(container.transform, false);
-            var bt = bubble.AddComponent<UnityEngine.UI.Text>();
+            var bubbleRT = bubble.AddComponent<RectTransform>();
+
+            // Background image (fills bubble behind text)
+            var bgGO = new GameObject("Bg");
+            bgGO.transform.SetParent(bubble.transform, false);
+            var bg = bgGO.AddComponent<UnityEngine.UI.Image>();
+            bg.color = isUser ? UserBg : AssistBg;
+            var bgRT = bgGO.GetComponent<RectTransform>();
+            bgRT.anchorMin = Vector2.zero; bgRT.anchorMax = Vector2.one;
+            bgRT.sizeDelta = Vector2.zero;
+
+            // Text (sits on top, defines the bubble size)
+            var textGO = new GameObject("Text");
+            textGO.transform.SetParent(bubble.transform, false);
+            var bt = textGO.AddComponent<UnityEngine.UI.Text>();
             bt.text = text;
             bt.font = _font; bt.fontSize = 16; bt.lineSpacing = 1.3f;
             bt.color = isUser ? UserTxt : AssistTxt;
             bt.alignment = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
             bt.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bubble.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var textRT = textGO.GetComponent<RectTransform>();
+            textRT.anchorMin = new Vector2(0, 0.3f); textRT.anchorMax = new Vector2(1, 0.7f);
+            textRT.offsetMin = new Vector2(10, 0); textRT.offsetMax = new Vector2(-10, 0);
+            textGO.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
+            // Bubble sizing: driven by text's preferred height + padding
+            bubble.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
             float maxW = (contentRoot.rect.width > 0 ? contentRoot.rect.width : 350f) * 0.82f;
             var le = bubble.AddComponent<LayoutElement>();
             le.minWidth = 100; le.preferredWidth = maxW;
 
-            // Bubble background
-            var bg = bubble.AddComponent<UnityEngine.UI.Image>();
-            if (bg != null) bg.color = isUser ? UserBg : AssistBg;
-
             // Anchor: user→right, assistant→left
-            var bRT = bubble.GetComponent<RectTransform>();
-            bRT.anchorMin = bRT.anchorMax = isUser ? new Vector2(1, 1) : new Vector2(0, 1);
-            bRT.pivot = isUser ? new Vector2(1, 1) : new Vector2(0, 1);
-            bRT.anchoredPosition = new Vector2(isUser ? 0 : 0, -15);
+            bubbleRT.anchorMin = bubbleRT.anchorMax = isUser ? new Vector2(1, 1) : new Vector2(0, 1);
+            bubbleRT.pivot = isUser ? new Vector2(1, 1) : new Vector2(0, 1);
+            bubbleRT.anchoredPosition = new Vector2(0, -15);
 
             _bubbles.Add(container);
             ScrollToBottom();

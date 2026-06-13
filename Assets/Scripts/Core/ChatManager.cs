@@ -71,10 +71,17 @@ namespace YaeSakura
                     {
                         if (currentSentence.Length > 0)
                         {
-                            var final = StripActions(currentSentence.ToString());
+                            var final = currentSentence.ToString().Trim();
                             if (!string.IsNullOrEmpty(final))
                                 _tts?.EnqueueSynthesis(final);
                         }
+                        // Flush any pending bracket action
+                        if (_inBracket && _currentAction.Length > 0)
+                        {
+                            chatPanel?.AddActionLine(_currentAction.ToString());
+                            _currentAction.Clear();
+                        }
+                        _inBracket = false;
                         chatPanel?.FinalizeStream();
                         _memory.AddTurn(text, fullResponse.ToString());
                         _isProcessing = false;
@@ -94,19 +101,44 @@ namespace YaeSakura
             );
         }
 
+        private bool _inBracket;
+        private StringBuilder _currentAction = new StringBuilder();
+
         private void ProcessChunk(string chunk, StringBuilder sentence)
         {
             for (int i = 0; i < chunk.Length; i++)
             {
                 char c = chunk[i];
                 sentence.Append(c);
-                chatPanel?.AppendStream(c.ToString());
 
-                if (IsSentenceEnd(c))
+                if (c == '（' || c == '(')
+                {
+                    _inBracket = true;
+                    _currentAction.Clear();
+                }
+                else if (c == '）' || c == ')')
+                {
+                    _inBracket = false;
+                    if (_currentAction.Length > 0)
+                    {
+                        chatPanel?.AddActionLine(_currentAction.ToString());
+                        _currentAction.Clear();
+                    }
+                }
+                else if (_inBracket)
+                {
+                    _currentAction.Append(c); // collect action text, don't show in bubble
+                }
+                else
+                {
+                    chatPanel?.AppendStream(c.ToString()); // only show non-bracket text
+                }
+
+                if (IsSentenceEnd(c) && !_inBracket)
                 {
                     var s = sentence.ToString().Trim();
                     sentence.Clear();
-                    var actionFree = StripActions(s);
+                    var actionFree = StripActionsForTTS(s);
                     if (!string.IsNullOrEmpty(actionFree))
                         _tts?.EnqueueSynthesis(actionFree);
                 }
@@ -120,45 +152,19 @@ namespace YaeSakura
             return false;
         }
 
-        private string StripActions(string sentence)
+        /// Strip bracketed content from text (for TTS). Does NOT call AddActionLine.
+        private string StripActionsForTTS(string sentence)
         {
             var cleaned = new StringBuilder();
             int depth = 0;
-            var action = new StringBuilder();
-
             for (int i = 0; i < sentence.Length; i++)
             {
                 char c = sentence[i];
-                if (c == '（' || c == '(')
-                {
-                    depth++;
-                }
-                else if (c == '）' || c == ')')
-                {
-                    depth--;
-                    if (depth == 0 && action.Length > 0)
-                    {
-                        chatPanel?.AddActionLine(action.ToString());
-                        action.Clear();
-                    }
-                }
-                else if (depth > 0)
-                {
-                    action.Append(c);
-                }
-                else
-                {
-                    cleaned.Append(c);
-                }
+                if (c == '（' || c == '(') depth++;
+                else if (c == '）' || c == ')') depth--;
+                else if (depth == 0) cleaned.Append(c);
             }
-
-            // Handle unclosed bracket: treat remaining as part of text
-            if (depth > 0)
-            {
-                cleaned.Insert(0, "（");
-                cleaned.Append(action.ToString());
-            }
-
+            if (depth > 0) { cleaned.Insert(0, "（"); }
             return cleaned.ToString().Trim();
         }
 
