@@ -323,6 +323,16 @@ namespace YaeSakura
             if (contentRoot != null) contentRoot.anchoredPosition = new Vector2(0, 0);
         }
 
+        public void RemoveLastBubble()
+        {
+            if (_bubbles.Count > 0)
+            {
+                var last = _bubbles[_bubbles.Count - 1];
+                if (last != null) Destroy(last);
+                _bubbles.RemoveAt(_bubbles.Count - 1);
+            }
+        }
+
         public void ClearAll()
         {
             foreach (var b in _bubbles) Destroy(b);

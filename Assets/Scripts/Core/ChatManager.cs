@@ -1,28 +1,36 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
 namespace YaeSakura
 {
-    /// Bridges Unity chat UI to the Python sakura_api_server.
-    /// Python handles: LLM streaming, memory, sentence splitting, action extraction.
-    /// Unity handles: 3D rendering, chat UI display, TTS playback.
+    /// Orchestrates LLM streaming, sentence splitting, action extraction — following Python display.py logic.
     public class ChatManager : MonoBehaviour
     {
         public ChatPanel chatPanel;
         public AudioSource ttsAudioSource;
 
-        private PythonBridgeClient _bridge;
+        private LLMClient _llm;
+        private MemoryManager _memory;
         private TTSClient _tts;
         private AppSettings _settings;
         private CancellationTokenSource _currentCTS;
         private bool _isProcessing;
 
+        // Match Python: sentence ends at 。！？\n
+        private static readonly Regex SentenceEnd = new Regex(@"[。！？\n]");
+        // Match Python: bracketed actions （...） or (...)
+        private static readonly Regex BracketAction = new Regex(@"[（(]([^）)]*)[）)]");
+
         private void Start()
         {
             _settings = AppConfig.Load();
-            _bridge = new PythonBridgeClient("http://127.0.0.1:5800");
+            _llm = new LLMClient(_settings.chatConfig);
+            _memory = new MemoryManager();
             _tts = new TTSClient(_settings.ttsConfig);
 
             if (ttsAudioSource != null)
@@ -46,40 +54,31 @@ namespace YaeSakura
                 catch { /* TTS unavailable */ }
             }
 
+            var messages = _memory.BuildMessages(text);
             chatPanel?.BeginStream();
 
-            await _bridge.SendChat(
-                text,
+            var fullText = new StringBuilder();
+
+            await _llm.SendStreaming(
+                messages,
                 onChunk: chunk =>
                 {
+                    fullText.Append(chunk);
                     UnityMainThreadDispatcher.Instance?.Enqueue(() =>
                     {
-                        chatPanel?.AppendStream(chunk);
+                        // Show raw text during streaming (same as 2D's current_streaming_message)
+                        // Brackets are shown in stream, will be cleaned on completion
+                        chatPanel?.AppendStream(chunk.ToString());
                     });
                 },
-                onComplete: (bubbles, actions) =>
+                onComplete: finalText =>
                 {
                     UnityMainThreadDispatcher.Instance?.Enqueue(() =>
                     {
                         chatPanel?.FinalizeStream();
-
-                        // Display per-sentence bubbles from Python
-                        foreach (var b in bubbles)
-                        {
-                            if (!string.IsNullOrWhiteSpace(b))
-                            {
-                                chatPanel?.AddBubble(b, false);
-                                _tts?.EnqueueSynthesis(b);
-                            }
-                        }
-
-                        // Display action lines
-                        foreach (var a in actions)
-                        {
-                            if (!string.IsNullOrWhiteSpace(a))
-                                chatPanel?.AddActionLine(a);
-                        }
-
+                        chatPanel?.RemoveLastBubble(); // remove raw stream bubble
+                        DisplayResponse(finalText);
+                        _memory.AddTurn(text, finalText);
                         _isProcessing = false;
                     });
                 },
@@ -87,7 +86,7 @@ namespace YaeSakura
                 {
                     UnityMainThreadDispatcher.Instance?.Enqueue(() =>
                     {
-                        Debug.LogError($"Chat error: {err}");
+                        Debug.LogError($"LLM Error: {err}");
                         chatPanel?.FinalizeStream();
                         chatPanel?.AddBubble($"[错误] {err}", false);
                         _isProcessing = false;
@@ -97,10 +96,39 @@ namespace YaeSakura
             );
         }
 
+        /// Split response into bubbles and actions, matching Python split_response().
+        private void DisplayResponse(string fullText)
+        {
+            // 1. Extract actions: （...） → separate action lines
+            var actions = new List<string>();
+            foreach (Match m in BracketAction.Matches(fullText))
+                actions.Add(m.Groups[1].Value);
+
+            // 2. Remove brackets from text, split by sentence ends
+            var clean = BracketAction.Replace(fullText, "");
+            var sentences = SentenceEnd.Split(clean);
+
+            // 3. Display each sentence as a bubble
+            foreach (var s in sentences)
+            {
+                var trimmed = s.Trim();
+                if (string.IsNullOrEmpty(trimmed)) continue;
+                chatPanel?.AddBubble(trimmed, false);
+                _tts?.EnqueueSynthesis(trimmed);
+            }
+
+            // 4. Display action lines
+            foreach (var a in actions)
+            {
+                if (!string.IsNullOrWhiteSpace(a))
+                    chatPanel?.AddActionLine(a);
+            }
+        }
+
         private void OnDestroy()
         {
             _currentCTS?.Cancel();
-            _bridge?.Dispose();
+            _llm?.Dispose();
             _ = _tts?.Disconnect();
         }
     }
