@@ -31,7 +31,8 @@
       "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" --help)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe python *)",
-      "mcp__funplay__get_hierarchy"
+      "mcp__funplay__get_hierarchy",
+      "mcp__funplay__wait_for_compilation"
     ]
   },
   "enableAllProjectMcpServers": true,

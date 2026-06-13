@@ -31,14 +31,14 @@ namespace YaeSakura
         private void CreateUI()
         {
             // Toggle button (gear)
-            var btnGO = new GameObject("SettingsToggle", typeof(Button), typeof(Image));
+            var btnGO = new GameObject("SettingsToggle", typeof(Button), typeof(UnityEngine.UI.Image));
             btnGO.transform.SetParent(transform, false);
             var rt = btnGO.GetComponent<RectTransform>();
             rt.anchorMin = new Vector2(1, 1); rt.anchorMax = new Vector2(1, 1);
             rt.pivot = new Vector2(1, 1);
             rt.anchoredPosition = new Vector2(-8, -8);
             rt.sizeDelta = new Vector2(36, 36);
-            btnGO.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.3f, 0.8f);
+            btnGO.GetComponent<UnityEngine.UI.Image>().color = new Color(0.2f, 0.2f, 0.3f, 0.8f);
             var tGO = new GameObject("Text", typeof(Text));
             tGO.transform.SetParent(btnGO.transform, false);
             var t = tGO.GetComponent<Text>();
@@ -51,14 +51,14 @@ namespace YaeSakura
             toggleButton = btnGO.GetComponent<Button>();
 
             // Sidebar panel
-            var panelGO = new GameObject("SettingsPanel", typeof(Image), typeof(VerticalLayoutGroup));
+            var panelGO = new GameObject("SettingsPanel", typeof(UnityEngine.UI.Image), typeof(VerticalLayoutGroup));
             panelGO.transform.SetParent(transform, false);
             panelRect = panelGO.GetComponent<RectTransform>();
             panelRect.anchorMin = new Vector2(1, 0); panelRect.anchorMax = new Vector2(1, 1);
             panelRect.pivot = new Vector2(1, 0.5f);
             panelRect.sizeDelta = new Vector2(280, 0);
             panelRect.anchoredPosition = Vector2.zero;
-            panelGO.GetComponent<Image>().color = new Color(0.08f, 0.08f, 0.16f, 0.95f);
+            panelGO.GetComponent<UnityEngine.UI.Image>().color = new Color(0.08f, 0.08f, 0.16f, 0.95f);
             var vlg = panelGO.GetComponent<VerticalLayoutGroup>();
             vlg.padding = new RectOffset(12, 12, 12, 12);
             vlg.spacing = 8;
@@ -102,9 +102,9 @@ namespace YaeSakura
             autoReplyToggle = AddToggle("启用", panelRect, _settings.autoReplyEnabled);
 
             // Save button
-            var saveBtn = new GameObject("SaveBtn", typeof(Button), typeof(Image), typeof(LayoutElement));
+            var saveBtn = new GameObject("SaveBtn", typeof(Button), typeof(UnityEngine.UI.Image), typeof(LayoutElement));
             saveBtn.transform.SetParent(panelRect, false);
-            saveBtn.GetComponent<Image>().color = new Color(0.35f, 0.2f, 0.45f);
+            saveBtn.GetComponent<UnityEngine.UI.Image>().color = new Color(0.35f, 0.2f, 0.45f);
             saveBtn.GetComponent<LayoutElement>().minHeight = 36;
             var sText = new GameObject("Text", typeof(Text));
             sText.transform.SetParent(saveBtn.transform, false);
@@ -129,9 +129,9 @@ namespace YaeSakura
 
         private InputField AddInput(string defaultValue, bool isPassword)
         {
-            var go = new GameObject("Input", typeof(InputField), typeof(Image), typeof(LayoutElement));
+            var go = new GameObject("Input", typeof(InputField), typeof(UnityEngine.UI.Image), typeof(LayoutElement));
             go.transform.SetParent(panelRect, false);
-            go.GetComponent<Image>().color = new Color(0.1f, 0.1f, 0.18f);
+            go.GetComponent<UnityEngine.UI.Image>().color = new Color(0.1f, 0.1f, 0.18f);
             go.GetComponent<LayoutElement>().minHeight = 30;
             var textGO = new GameObject("Text", typeof(Text));
             textGO.transform.SetParent(go.transform, false);
@@ -151,24 +151,24 @@ namespace YaeSakura
 
         private Toggle AddToggle(string label, Transform parent, bool isOn)
         {
-            var go = new GameObject("Toggle_" + label, typeof(Toggle), typeof(Image));
+            var go = new GameObject("Toggle_" + label, typeof(Toggle), typeof(UnityEngine.UI.Image));
             go.transform.SetParent(parent, false);
-            go.GetComponent<Image>().color = isOn ? new Color(0.35f, 0.2f, 0.45f) : new Color(0.1f, 0.1f, 0.18f);
+            go.GetComponent<UnityEngine.UI.Image>().color = isOn ? new Color(0.35f, 0.2f, 0.45f) : new Color(0.1f, 0.1f, 0.18f);
             var le = go.AddComponent<LayoutElement>();
             le.minWidth = 80; le.minHeight = 24;
 
-            var bg = new GameObject("Background", typeof(Image));
+            var bg = new GameObject("Background", typeof(UnityEngine.UI.Image));
             bg.transform.SetParent(go.transform, false);
             bg.GetComponent<RectTransform>().anchorMin = Vector2.zero; bg.GetComponent<RectTransform>().anchorMax = Vector2.one;
             bg.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
-            bg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            bg.GetComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, 0);
 
-            var check = new GameObject("Checkmark", typeof(Image));
+            var check = new GameObject("Checkmark", typeof(UnityEngine.UI.Image));
             check.transform.SetParent(bg.transform, false);
             var ckRT = check.GetComponent<RectTransform>();
             ckRT.anchorMin = new Vector2(0.05f, 0.15f); ckRT.anchorMax = new Vector2(0.25f, 0.85f);
             ckRT.sizeDelta = Vector2.zero;
-            check.GetComponent<Image>().color = Color.white;
+            check.GetComponent<UnityEngine.UI.Image>().color = Color.white;
 
             var labelGO = new GameObject("Label", typeof(Text));
             labelGO.transform.SetParent(go.transform, false);
@@ -182,7 +182,7 @@ namespace YaeSakura
             lRT.offsetMin = new Vector2(4, 0); lRT.offsetMax = new Vector2(0, 0);
 
             var toggle = go.GetComponent<Toggle>();
-            toggle.graphic = check.GetComponent<Image>();
+            toggle.graphic = check.GetComponent<UnityEngine.UI.Image>();
             toggle.isOn = isOn;
 
             return toggle;
