@@ -1,296 +1,267 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace YaeSakura
 {
+    /// Chat panel rebuilt with UI Toolkit — matches 2D CSS layout exactly.
+    /// Structure: right panel (30%) with card containing scrollable messages + input row.
     public class ChatPanel : MonoBehaviour
     {
-        public ScrollRect scrollRect;
-        public RectTransform contentRoot;
-        public InputField inputField;
-        public Button sendButton;
-
-        private List<GameObject> _bubbles = new List<GameObject>();
-        private UnityEngine.UI.Text _currentStreamBubble;
-        private bool _isStreaming;
-        public bool IsStreaming => _isStreaming;
         public System.Action<string> OnSendMessage;
 
-        static Color CardBg    = new Color(0.051f, 0.102f, 0.149f, 0.50f);
-        static Color AssistBg  = new Color(1f, 0.784f, 0.843f, 0.30f);
-        static Color UserBg    = new Color(1f, 1f, 1f, 0.12f);
-        static Color AssistTxt = new Color(1f, 0.91f, 0.933f);
-        static Color UserTxt   = new Color(0.867f, 0.867f, 0.867f);
-        static Color ActionTxt = new Color(1f, 0.784f, 0.824f, 0.55f);
-        static Color AssistName= new Color(1f, 0.718f, 0.773f, 0.60f);
-        static Color UserName  = new Color(0.6f, 0.6f, 0.6f, 0.50f);
-        static Color InputBg   = new Color(1f, 1f, 1f, 0.07f);
-        static Color SendBg    = new Color(1f, 0.588f, 0.667f, 0.25f);
-        static Color SendTxt   = new Color(1f, 1f, 1f, 0.80f);
-        static Color TitleBg2  = new Color(0.047f, 0.039f, 0.086f, 0.55f);
+        // Root elements
+        private VisualElement _right;
+        private VisualElement _card;
+        private ScrollView _msgs;
+        private TextField _input;
+        private Button _sendBtn;
 
-        private Font _font;
+        private Label _streamLabel;
+        private bool _isStreaming;
+        public bool IsStreaming => _isStreaming;
 
-        void Start()
+        // Stored for removal on completion
+        private VisualElement _streamElement;
+
+        void OnEnable()
         {
-            _font = Font.CreateDynamicFontFromOSFont("Microsoft YaHei", 14);
-            if (_font == null) _font = Font.CreateDynamicFontFromOSFont("Arial", 14);
-            if (_font == null) _font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            CreateUI();
-            sendButton.onClick.AddListener(SendMessage);
+            var doc = GetComponent<UIDocument>();
+            if (doc == null) doc = gameObject.AddComponent<UIDocument>();
+            BuildUI(doc.rootVisualElement);
         }
 
-        void CreateUI()
+        void BuildUI(VisualElement root)
         {
-            // Right-side panel root
-            var panel = new GameObject("Panel");
-            panel.transform.SetParent(transform, false);
-            var pRT = panel.AddComponent<RectTransform>();
-            pRT.anchorMin = new Vector2(0.70f, 0); pRT.anchorMax = new Vector2(1, 1);
-            pRT.offsetMin = new Vector2(8, 8); pRT.offsetMax = new Vector2(-12, -8);
+            root.style.flexGrow = 1;
+            root.style.flexDirection = FlexDirection.Row;
+            root.style.position = Position.Absolute;
+            root.style.top = 0; root.style.left = 0; root.style.right = 0; root.style.bottom = 0;
+            root.pickingMode = PickingMode.Ignore; // clicks pass through to children
 
-            // Card fill
-            var card = new GameObject("Card");
-            card.transform.SetParent(panel.transform, false);
-            var cRT = card.AddComponent<RectTransform>();
-            cRT.anchorMin = new Vector2(0, 0.06f); cRT.anchorMax = new Vector2(1, 0.92f);
-            cRT.offsetMin = Vector2.zero; cRT.offsetMax = Vector2.zero;
-            var cardImg = card.AddComponent<UnityEngine.UI.Image>();
-            cardImg.color = CardBg;
-            // Load rounded corner sprite (9-sliced for smooth resize)
-            var roundedSprite = Resources.Load<Sprite>("rounded_card");
-            if (roundedSprite != null) { cardImg.sprite = roundedSprite; cardImg.type = UnityEngine.UI.Image.Type.Sliced; }
+            // ── Right panel ──
+            _right = new VisualElement();
+            _right.style.width = Length.Percent(30);
+            _right.style.position = Position.Absolute;
+            _right.style.top = 0; _right.style.bottom = 0; _right.style.right = 0;
+            _right.style.flexDirection = FlexDirection.Column;
+            _right.style.paddingTop = 8; _right.style.paddingBottom = 8;
+            _right.style.paddingRight = 12;
+            _right.pickingMode = PickingMode.Position;
+            root.Add(_right);
+
+            // Title bar
+            var titleBar = new VisualElement();
+            titleBar.style.height = 36;
+            titleBar.style.backgroundColor = new Color(0.047f, 0.039f, 0.086f, 0.55f);
+            titleBar.style.flexDirection = FlexDirection.Row;
+            titleBar.style.alignItems = Align.Center;
+            titleBar.style.justifyContent = Justify.Center;
+            var title = new Label("八重樱 · 圣痕之庭");
+            title.style.fontSize = 14;
+            title.style.color = new Color(1, 1, 1, 0.5f);
+            title.style.unityFontStyleAndWeight = FontStyle.Bold;
+            title.style.unityTextAlign = TextAnchor.MiddleCenter;
+            titleBar.Add(title);
+            _right.Add(titleBar);
+
+            // Card — matches .card in CSS: bg, rounded, flex
+            _card = new VisualElement();
+            _card.style.flexGrow = 1;
+            _card.style.backgroundColor = new Color(0.051f, 0.102f, 0.149f, 0.50f);
+            _card.style.borderTopLeftRadius = _card.style.borderTopRightRadius = 16;
+            _card.style.borderBottomLeftRadius = _card.style.borderBottomRightRadius = 16;
+            _card.style.borderTopWidth = _card.style.borderRightWidth =
+                _card.style.borderBottomWidth = _card.style.borderLeftWidth = 1;
+            _card.style.borderTopColor = _card.style.borderRightColor =
+                _card.style.borderBottomColor = _card.style.borderLeftColor = new Color(1, 1, 1, 0.08f);
+            _card.style.flexDirection = FlexDirection.Column;
+            _card.style.overflow = Overflow.Hidden;
+            _right.Add(_card);
 
             // ── Messages scroll ──
-            var msgsGO = new GameObject("Msgs");
-            msgsGO.transform.SetParent(card.transform, false);
-            var msgsRT = msgsGO.AddComponent<RectTransform>();
-            msgsRT.anchorMin = new Vector2(0, 0.10f); msgsRT.anchorMax = new Vector2(1, 1);
-            msgsRT.offsetMin = Vector2.zero; msgsRT.offsetMax = Vector2.zero;
-            scrollRect = msgsGO.AddComponent<ScrollRect>();
-
-            var vp = new GameObject("Viewport");
-            vp.transform.SetParent(msgsGO.transform, false);
-            var vpRT = vp.AddComponent<RectTransform>();
-            vpRT.anchorMin = Vector2.zero; vpRT.anchorMax = Vector2.one;
-            vpRT.sizeDelta = Vector2.zero;
-            vp.AddComponent<RectMask2D>();
-
-            var content = new GameObject("Content");
-            content.transform.SetParent(vp.transform, false);
-            contentRoot = content.AddComponent<RectTransform>();
-            contentRoot.anchorMin = new Vector2(0, 1); contentRoot.anchorMax = new Vector2(1, 1);
-            contentRoot.pivot = new Vector2(0.5f, 1);
-            contentRoot.sizeDelta = new Vector2(0, 0);
-            var vlg = content.AddComponent<VerticalLayoutGroup>();
-            vlg.childAlignment = TextAnchor.UpperLeft;
-            vlg.spacing = 10;
-            vlg.padding = new RectOffset(0, 0, 14, 0);
-            vlg.childForceExpandWidth = true;
-            vlg.childForceExpandHeight = false;
-            content.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-            scrollRect.viewport = vpRT;
-            scrollRect.content = contentRoot;
-            scrollRect.horizontal = false;
+            _msgs = new ScrollView(ScrollViewMode.Vertical);
+            _msgs.style.flexGrow = 1;
+            _msgs.style.paddingTop = 14; _msgs.style.paddingBottom = 0;
+            _msgs.style.paddingLeft = 12; _msgs.style.paddingRight = 12;
+            _msgs.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+            _msgs.verticalScrollerVisibility = ScrollerVisibility.Hidden;
+            _msgs.contentContainer.style.flexDirection = FlexDirection.Column;
+            _msgs.contentContainer.style.alignItems = Align.Stretch;
+            _card.Add(_msgs);
 
             // ── Input row ──
-            var inputRow = new GameObject("InputRow");
-            inputRow.transform.SetParent(card.transform, false);
-            var irRT = inputRow.AddComponent<RectTransform>();
-            irRT.anchorMin = new Vector2(0, 0); irRT.anchorMax = new Vector2(1, 0.10f);
-            irRT.offsetMin = new Vector2(10, 4); irRT.offsetMax = new Vector2(-10, -6);
+            var inputRow = new VisualElement();
+            inputRow.style.flexDirection = FlexDirection.Row;
+            inputRow.style.paddingTop = 8; inputRow.style.paddingBottom = 10;
+            inputRow.style.paddingLeft = 10; inputRow.style.paddingRight = 10;
+            inputRow.style.minHeight = 52;
 
-            var inputGO = new GameObject("InputField");
-            inputGO.transform.SetParent(inputRow.transform, false);
-            var inputRT = inputGO.AddComponent<RectTransform>();
-            inputRT.anchorMin = new Vector2(0, 0.05f); inputRT.anchorMax = new Vector2(0.80f, 0.95f);
-            inputRT.sizeDelta = Vector2.zero;
-            inputField = inputGO.AddComponent<InputField>();
-            inputField.lineType = InputField.LineType.MultiLineNewline;
-            var inBg = inputGO.AddComponent<UnityEngine.UI.Image>();
-            inBg.color = InputBg;
+            _input = new TextField();
+            _input.style.flexGrow = 1;
+            _input.style.backgroundColor = new Color(1, 1, 1, 0.07f);
+            _input.style.borderTopLeftRadius = _input.style.borderBottomLeftRadius = 20;
+            _input.style.borderTopRightRadius = _input.style.borderBottomRightRadius = 20;
+            _input.style.borderTopWidth = _input.style.borderRightWidth =
+                _input.style.borderBottomWidth = _input.style.borderLeftWidth = 1;
+            _input.style.borderTopColor = _input.style.borderRightColor =
+                _input.style.borderBottomColor = _input.style.borderLeftColor = new Color(1, 1, 1, 0.10f);
+            _input.style.paddingLeft = 14; _input.style.paddingRight = 14;
+            _input.style.color = new Color(0.867f, 0.867f, 0.867f);
+            _input.style.fontSize = 16;
+            _input.multiline = true;
+            _input.RegisterCallback<KeyDownEvent>(OnInputKey);
+            inputRow.Add(_input);
 
-            var tGO = new GameObject("Text");
-            tGO.transform.SetParent(inputGO.transform, false);
-            var tRT = tGO.AddComponent<RectTransform>();
-            tRT.anchorMin = Vector2.zero; tRT.anchorMax = Vector2.one;
-            tRT.offsetMin = new Vector2(14, 3); tRT.offsetMax = new Vector2(-14, -3);
-            var t = tGO.AddComponent<UnityEngine.UI.Text>();
-            t.font = _font; t.fontSize = 16; t.color = UserTxt;
-            t.alignment = TextAnchor.MiddleLeft;
-            inputField.textComponent = t;
+            _sendBtn = new Button(SendMessage) { text = "发送" };
+            _sendBtn.style.backgroundColor = new Color(1, 0.588f, 0.667f, 0.25f);
+            _sendBtn.style.color = new Color(1, 1, 1, 0.8f);
+            _sendBtn.style.fontSize = 16;
+            _sendBtn.style.borderTopLeftRadius = _sendBtn.style.borderBottomLeftRadius = 0;
+            _sendBtn.style.borderTopRightRadius = _sendBtn.style.borderBottomRightRadius = 18;
+            _sendBtn.style.marginLeft = 8;
+            _sendBtn.style.paddingLeft = 16; _sendBtn.style.paddingRight = 16;
+            _sendBtn.style.minWidth = 64;
+            inputRow.Add(_sendBtn);
 
-            var phGO = new GameObject("Placeholder");
-            phGO.transform.SetParent(inputGO.transform, false);
-            var phRT = phGO.AddComponent<RectTransform>();
-            phRT.anchorMin = Vector2.zero; phRT.anchorMax = Vector2.one;
-            phRT.offsetMin = new Vector2(16, 3); phRT.offsetMax = new Vector2(-16, -3);
-            var ph = phGO.AddComponent<UnityEngine.UI.Text>();
-            ph.text = "说点什么..."; ph.font = _font; ph.fontSize = 14;
-            ph.fontStyle = FontStyle.Italic; ph.color = new Color(1,1,1,0.3f);
-            ph.alignment = TextAnchor.MiddleLeft;
-            inputField.placeholder = ph;
-
-            var btnGO = new GameObject("SendButton");
-            btnGO.transform.SetParent(inputRow.transform, false);
-            var btnRT = btnGO.AddComponent<RectTransform>();
-            btnRT.anchorMin = new Vector2(0.82f, 0.05f); btnRT.anchorMax = new Vector2(1, 0.95f);
-            btnRT.sizeDelta = Vector2.zero;
-            sendButton = btnGO.AddComponent<Button>();
-            var btnBg = btnGO.AddComponent<UnityEngine.UI.Image>();
-            btnBg.color = SendBg;
-
-            var btnTGO = new GameObject("Text");
-            btnTGO.transform.SetParent(btnGO.transform, false);
-            var btnTRT = btnTGO.AddComponent<RectTransform>();
-            btnTRT.anchorMin = Vector2.zero; btnTRT.anchorMax = Vector2.one;
-            var btnT = btnTGO.AddComponent<UnityEngine.UI.Text>();
-            btnT.text = "发送"; btnT.font = _font; btnT.fontSize = 16;
-            btnT.color = SendTxt; btnT.alignment = TextAnchor.MiddleCenter;
-
-            // ── Title bar (thin, top of card) ──
-            var tb = new GameObject("TitleBar");
-            tb.transform.SetParent(panel.transform, false);
-            var tbRT = tb.AddComponent<RectTransform>();
-            tbRT.anchorMin = new Vector2(0, 0.92f); tbRT.anchorMax = new Vector2(1, 1);
-            tbRT.offsetMin = Vector2.zero; tbRT.offsetMax = Vector2.zero;
-            var tbBg = tb.AddComponent<UnityEngine.UI.Image>();
-            tbBg.color = TitleBg2;
-            var tt = new GameObject("Title");
-            tt.transform.SetParent(tb.transform, false);
-            var ttT = tt.AddComponent<UnityEngine.UI.Text>();
-            ttT.text = "八重樱 · 圣痕之庭"; ttT.font = _font;
-            ttT.fontSize = 14; ttT.fontStyle = FontStyle.Bold;
-            ttT.color = new Color(1,1,1,0.45f); ttT.alignment = TextAnchor.MiddleCenter;
-            var ttRT = tt.GetComponent<RectTransform>();
-            ttRT.anchorMin = Vector2.zero; ttRT.anchorMax = Vector2.one;
-            ttRT.offsetMin = Vector2.zero; ttRT.offsetMax = Vector2.zero;
+            _card.Add(inputRow);
         }
 
-        // ── Bubble methods ──
+        void OnInputKey(KeyDownEvent evt)
+        {
+            if (evt.keyCode == KeyCode.Return && !evt.shiftKey)
+            {
+                SendMessage();
+                evt.StopPropagation();
+            }
+        }
+
+        // ── Public API (same as before) ──
 
         public void AddBubble(string text, bool isUser)
         {
-            if (contentRoot == null) return;
+            var container = new VisualElement();
+            container.style.flexDirection = FlexDirection.Column;
+            container.style.marginTop = 3; container.style.marginBottom = 3;
+            container.style.alignItems = isUser ? Align.FlexEnd : Align.FlexStart;
 
-            // Container row: wraps name + bubble
-            var row = new GameObject(isUser ? "UserRow" : "AssistRow");
-            row.transform.SetParent(contentRoot, false);
-            var rLE = row.AddComponent<LayoutElement>();
-            rLE.minWidth = 100;
-            rLE.preferredHeight = 24; // will be overridden by content
+            // Name
+            var name = new Label(isUser ? "旅人" : "八重樱");
+            name.style.fontSize = 12;
+            name.style.color = isUser
+                ? new Color(0.6f, 0.6f, 0.6f, 0.5f)
+                : new Color(1, 0.718f, 0.773f, 0.6f);
+            name.style.marginBottom = 2;
+            name.style.unityTextAlign = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
+            name.style.paddingRight = isUser ? 6 : 0;
+            name.style.paddingLeft = isUser ? 0 : 6;
+            container.Add(name);
 
-            // Name label
-            var label = new GameObject("Label");
-            label.transform.SetParent(row.transform, false);
-            var lt = label.AddComponent<UnityEngine.UI.Text>();
-            lt.text = isUser ? "旅人" : "八重樱";
-            lt.font = _font; lt.fontSize = 12;
-            lt.color = isUser ? UserName : AssistName;
-            lt.alignment = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
-            var lRT = label.GetComponent<RectTransform>();
-            lRT.anchorMin = lRT.anchorMax = isUser ? new Vector2(1,1) : new Vector2(0,1);
-            lRT.pivot = isUser ? new Vector2(1,1) : new Vector2(0,1);
-            lRT.sizeDelta = new Vector2(200, 14);
-            lRT.anchoredPosition = Vector2.zero;
+            // Bubble
+            var bubble = new VisualElement();
+            bubble.style.flexDirection = FlexDirection.Row;
+            bubble.style.maxWidth = Length.Percent(82);
+            bubble.style.backgroundColor = isUser
+                ? new Color(1, 1, 1, 0.12f)
+                : new Color(1, 0.784f, 0.843f, 0.30f);
+            bubble.style.borderTopLeftRadius = bubble.style.borderTopRightRadius = 14;
+            bubble.style.borderBottomLeftRadius = bubble.style.borderBottomRightRadius = 14;
+            // Tail: one corner at 4px
+            if (isUser) bubble.style.borderBottomRightRadius = 4;
+            else bubble.style.borderBottomLeftRadius = 4;
 
-            // Bubble: bg + text
-            var bubble = new GameObject("Bubble");
-            bubble.transform.SetParent(row.transform, false);
-            var bRT = bubble.AddComponent<RectTransform>();
-            bubble.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var bubbleText = new Label(text);
+            bubbleText.style.fontSize = 16;
+            bubbleText.style.color = isUser
+                ? new Color(0.867f, 0.867f, 0.867f)
+                : new Color(1, 0.91f, 0.933f);
+            bubbleText.style.paddingTop = 10; bubbleText.style.paddingBottom = 10;
+            bubbleText.style.paddingLeft = 14; bubbleText.style.paddingRight = 14;
+            bubbleText.style.whiteSpace = WhiteSpace.Normal;
+            bubbleText.style.unityTextAlign = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
+            bubble.Add(bubbleText);
+            container.Add(bubble);
 
-            var bg = new GameObject("Bg");
-            bg.transform.SetParent(bubble.transform, false);
-            var bgImg = bg.AddComponent<UnityEngine.UI.Image>();
-            bgImg.color = isUser ? UserBg : AssistBg;
-            var bgRT = bg.GetComponent<RectTransform>();
-            bgRT.anchorMin = Vector2.zero; bgRT.anchorMax = Vector2.one;
-            bgRT.sizeDelta = Vector2.zero;
-
-            var txt = new GameObject("Txt");
-            txt.transform.SetParent(bubble.transform, false);
-            var bt = txt.AddComponent<UnityEngine.UI.Text>();
-            bt.text = text;
-            bt.font = _font; bt.fontSize = 16; bt.lineSpacing = 1.3f;
-            bt.color = isUser ? UserTxt : AssistTxt;
-            bt.alignment = isUser ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
-            bt.horizontalOverflow = HorizontalWrapMode.Wrap;
-            var tRT = txt.GetComponent<RectTransform>();
-            tRT.anchorMin = new Vector2(0, 0.15f); tRT.anchorMax = new Vector2(1, 0.85f);
-            tRT.offsetMin = new Vector2(14, 0); tRT.offsetMax = new Vector2(-14, 0);
-            txt.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-            float maxW = (contentRoot.rect.width > 0 ? contentRoot.rect.width : 350f) * 0.85f;
-            var le = bubble.AddComponent<LayoutElement>();
-            le.minWidth = 100; le.preferredWidth = maxW;
-
-            bRT.anchorMin = bRT.anchorMax = isUser ? new Vector2(1,1) : new Vector2(0,1);
-            bRT.pivot = isUser ? new Vector2(1,1) : new Vector2(0,1);
-            bRT.anchoredPosition = new Vector2(0, -16);
-
-            _bubbles.Add(row);
+            _msgs.contentContainer.Add(container);
             ScrollToBottom();
         }
 
         public void AddActionLine(string text)
         {
-            if (contentRoot == null) return;
-            var go = new GameObject("Action");
-            go.transform.SetParent(contentRoot, false);
-            var t = go.AddComponent<UnityEngine.UI.Text>();
-            t.text = "— " + text + " —";
-            t.font = _font; t.fontSize = 13; t.fontStyle = FontStyle.Italic;
-            t.color = ActionTxt; t.alignment = TextAnchor.MiddleCenter;
-            go.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            go.AddComponent<LayoutElement>().minWidth = 140;
-            _bubbles.Add(go);
+            var action = new Label("— " + text + " —");
+            action.style.fontSize = 13;
+            action.style.color = new Color(1, 0.784f, 0.824f, 0.55f);
+            action.style.unityFontStyleAndWeight = FontStyle.Italic;
+            action.style.unityTextAlign = TextAnchor.MiddleCenter;
+            action.style.marginTop = 8; action.style.marginBottom = 8;
+            action.style.paddingLeft = 20; action.style.paddingRight = 20;
+            _msgs.contentContainer.Add(action);
             ScrollToBottom();
         }
 
-        public UnityEngine.UI.Text BeginStream()
+        public void AddTimeDivider(string text)
         {
-            _isStreaming = true;
-            var go = new GameObject("Stream");
-            go.transform.SetParent(contentRoot, false);
-            _currentStreamBubble = go.AddComponent<UnityEngine.UI.Text>();
-            _currentStreamBubble.text = "";
-            _currentStreamBubble.font = _font; _currentStreamBubble.fontSize = 16;
-            _currentStreamBubble.color = AssistTxt;
-            _currentStreamBubble.alignment = TextAnchor.MiddleLeft;
-            go.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var le = go.AddComponent<LayoutElement>();
-            le.minWidth = 100;
-            le.preferredWidth = (contentRoot.rect.width > 0 ? contentRoot.rect.width : 350f) * 0.85f;
-            _bubbles.Add(go);
-            return _currentStreamBubble;
+            var div = new Label("━━  " + text + "  ━━");
+            div.style.fontSize = 11;
+            div.style.color = new Color(1, 1, 1, 0.25f);
+            div.style.unityTextAlign = TextAnchor.MiddleCenter;
+            div.style.marginTop = 12; div.style.marginBottom = 8;
+            _msgs.contentContainer.Add(div);
+            ScrollToBottom();
         }
 
-        public void AppendStream(string chunk) { if (_currentStreamBubble != null) _currentStreamBubble.text += chunk; ScrollToBottom(); }
-        public void FinalizeStream() { _isStreaming = false; _currentStreamBubble = null; }
-        public void RemoveLastBubble() { if (_bubbles.Count > 0) { var l = _bubbles[_bubbles.Count-1]; if (l) Destroy(l); _bubbles.RemoveAt(_bubbles.Count-1); } }
+        public Label BeginStream()
+        {
+            _isStreaming = true;
+            var container = new VisualElement();
+            container.style.alignItems = Align.FlexStart;
+            container.style.maxWidth = Length.Percent(82);
 
-        void ScrollToBottom() { Canvas.ForceUpdateCanvases(); if (contentRoot != null) contentRoot.anchoredPosition = new Vector2(0, 0); }
+            _streamLabel = new Label("");
+            _streamLabel.style.fontSize = 16;
+            _streamLabel.style.color = new Color(1, 0.91f, 0.933f);
+            _streamLabel.style.whiteSpace = WhiteSpace.Normal;
+            _streamLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
+            container.Add(_streamLabel);
+            _msgs.contentContainer.Add(container);
+            _streamElement = container;
+            return _streamLabel;
+        }
+
+        public void AppendStream(string chunk)
+        {
+            if (_streamLabel != null) _streamLabel.text += chunk;
+            ScrollToBottom();
+        }
+
+        public void FinalizeStream() { _isStreaming = false; _streamLabel = null; }
+
+        public void RemoveLastBubble()
+        {
+            if (_streamElement != null)
+            {
+                _streamElement.RemoveFromHierarchy();
+                _streamElement = null;
+            }
+        }
+
+        public void ScrollToBottom()
+        {
+            _msgs?.schedule.Execute(() =>
+            {
+                if (_msgs.verticalScroller != null)
+                    _msgs.verticalScroller.value = _msgs.contentContainer.layout.height;
+            }).StartingIn(50);
+        }
 
         public void SendMessage()
         {
-            if (inputField == null || _isStreaming) return;
-            var txt = inputField.text.Trim();
+            if (_isStreaming) return;
+            var txt = _input.value.Trim();
             if (string.IsNullOrEmpty(txt)) return;
-            inputField.text = "";
+            _input.value = "";
             AddBubble(txt, true);
             OnSendMessage?.Invoke(txt);
-        }
-
-        void Update()
-        {
-            if (inputField != null && inputField.isFocused && Input.GetKeyDown(KeyCode.Return))
-            {
-                if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
-                    SendMessage();
-            }
         }
     }
 }
