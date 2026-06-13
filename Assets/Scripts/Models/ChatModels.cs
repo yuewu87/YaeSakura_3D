@@ -16,7 +16,7 @@ namespace YaeSakura
         public string apiUrl = "https://api.deepseek.com/v1/chat/completions";
         public string apiKey = "";
         public string model = "deepseek-chat";
-        public string provider = "deepseek"; // "deepseek" or "qwen"
+        public APIProvider provider = APIProvider.DeepSeek;
         public bool enableThinking = false;
         public float temperature = 0.7f;
         public int maxTokens = 1024;

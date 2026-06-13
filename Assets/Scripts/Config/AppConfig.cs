@@ -19,14 +19,11 @@ namespace YaeSakura
         public static AppSettings Load()
         {
             var s = new AppSettings();
-            s.chatConfig.provider = PlayerPrefs.GetString(KEY_API_PROVIDER, "deepseek");
-            s.chatConfig.apiUrl = PlayerPrefs.GetString(KEY_API_URL,
-                s.chatConfig.provider == "qwen"
-                    ? "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
-                    : "https://api.deepseek.com/v1/chat/completions");
+            s.chatConfig.provider = PlayerPrefs.GetString(KEY_API_PROVIDER, "deepseek") == "qwen" ? APIProvider.Qwen : APIProvider.DeepSeek;
+            s.chatConfig.apiUrl = PlayerPrefs.GetString(KEY_API_URL, GetDefaultAPIUrl(s.chatConfig.provider));
             s.chatConfig.apiKey = PlayerPrefs.GetString(KEY_API_KEY, "");
             s.chatConfig.model = PlayerPrefs.GetString(KEY_MODEL,
-                s.chatConfig.provider == "qwen" ? "qwen-turbo" : "deepseek-chat");
+                s.chatConfig.provider == APIProvider.Qwen ? "qwen-turbo" : "deepseek-chat");
             s.ttsConfig.serverUrl = PlayerPrefs.GetString(KEY_TTS_URL, "ws://localhost:8770");
             s.autoReplyMinutes = PlayerPrefs.GetInt(KEY_AUTO_REPLY_MINUTES, 5);
             s.autoReplyEnabled = PlayerPrefs.GetInt(KEY_AUTO_REPLY_ENABLED, 0) == 1;
@@ -39,7 +36,8 @@ namespace YaeSakura
 
         public static void Save(AppSettings s)
         {
-            PlayerPrefs.SetString(KEY_API_PROVIDER, s.chatConfig.provider);
+            if (s == null) return;
+            PlayerPrefs.SetString(KEY_API_PROVIDER, s.chatConfig.provider.ToString().ToLower());
             PlayerPrefs.SetString(KEY_API_URL, s.chatConfig.apiUrl);
             PlayerPrefs.SetString(KEY_API_KEY, s.chatConfig.apiKey);
             PlayerPrefs.SetString(KEY_MODEL, s.chatConfig.model);
@@ -53,9 +51,9 @@ namespace YaeSakura
             PlayerPrefs.Save();
         }
 
-        public static string GetDefaultAPIUrl(string provider)
+        public static string GetDefaultAPIUrl(APIProvider provider)
         {
-            return provider == "qwen"
+            return provider == APIProvider.Qwen
                 ? "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
                 : "https://api.deepseek.com/v1/chat/completions";
         }
