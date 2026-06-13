@@ -11,6 +11,10 @@ namespace YaeSakura
         private const string KEY_TTS_URL = "ys_tts_url";
         private const string KEY_AUTO_REPLY_MINUTES = "ys_auto_reply";
         private const string KEY_AUTO_REPLY_ENABLED = "ys_auto_reply_enabled";
+        private const string KEY_ENABLE_THINKING = "ys_enable_thinking";
+        private const string KEY_TEMPERATURE = "ys_temperature";
+        private const string KEY_MAX_TOKENS = "ys_max_tokens";
+        private const string KEY_TTS_CHARACTER = "ys_tts_character";
 
         public static AppSettings Load()
         {
@@ -26,6 +30,10 @@ namespace YaeSakura
             s.ttsConfig.serverUrl = PlayerPrefs.GetString(KEY_TTS_URL, "ws://localhost:8770");
             s.autoReplyMinutes = PlayerPrefs.GetInt(KEY_AUTO_REPLY_MINUTES, 5);
             s.autoReplyEnabled = PlayerPrefs.GetInt(KEY_AUTO_REPLY_ENABLED, 0) == 1;
+            s.chatConfig.enableThinking = PlayerPrefs.GetInt(KEY_ENABLE_THINKING, 0) == 1;
+            s.chatConfig.temperature = PlayerPrefs.GetFloat(KEY_TEMPERATURE, 0.7f);
+            s.chatConfig.maxTokens = PlayerPrefs.GetInt(KEY_MAX_TOKENS, 1024);
+            s.ttsConfig.character = PlayerPrefs.GetString(KEY_TTS_CHARACTER, "sakura");
             return s;
         }
 
@@ -38,6 +46,10 @@ namespace YaeSakura
             PlayerPrefs.SetString(KEY_TTS_URL, s.ttsConfig.serverUrl);
             PlayerPrefs.SetInt(KEY_AUTO_REPLY_MINUTES, s.autoReplyMinutes);
             PlayerPrefs.SetInt(KEY_AUTO_REPLY_ENABLED, s.autoReplyEnabled ? 1 : 0);
+            PlayerPrefs.SetInt(KEY_ENABLE_THINKING, s.chatConfig.enableThinking ? 1 : 0);
+            PlayerPrefs.SetFloat(KEY_TEMPERATURE, s.chatConfig.temperature);
+            PlayerPrefs.SetInt(KEY_MAX_TOKENS, s.chatConfig.maxTokens);
+            PlayerPrefs.SetString(KEY_TTS_CHARACTER, s.ttsConfig.character);
             PlayerPrefs.Save();
         }
 
