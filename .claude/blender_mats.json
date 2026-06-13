@@ -1,0 +1,331 @@
+[
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 0,
+    "mat_name": "头发",
+    "textures": [
+      {
+        "name": "头发.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\头发.png"
+      },
+      {
+        "name": "toon02.bmp",
+        "filepath": "C:\\Users\\wuyeu\\AppData\\Roaming\\Blender Foundation\\Blender\\5.1\\extensions\\blender_org\\mmd_tools\\externals\\MikuMikuDance\\toon02.bmp"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 1,
+    "mat_name": "耳朵",
+    "textures": [
+      {
+        "name": "头发.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\头发.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 2,
+    "mat_name": "衣服",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 3,
+    "mat_name": "秀饰",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 4,
+    "mat_name": "手套",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 5,
+    "mat_name": "项链",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 6,
+    "mat_name": "头饰",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 7,
+    "mat_name": "鞋子",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 8,
+    "mat_name": "武器",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 9,
+    "mat_name": "皮肤",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 10,
+    "mat_name": "裙子",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 11,
+    "mat_name": "裙子1",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 12,
+    "mat_name": "裙子2",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 13,
+    "mat_name": "裙子3",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 14,
+    "mat_name": "裙子4",
+    "textures": [
+      {
+        "name": "衣服.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\衣服.png"
+      },
+      {
+        "name": "toon2.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon2.png"
+      },
+      {
+        "name": "mc3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\mc3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 15,
+    "mat_name": "眉毛",
+    "textures": [
+      {
+        "name": "脸.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\脸.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 16,
+    "mat_name": "脸",
+    "textures": [
+      {
+        "name": "脸.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\脸.png"
+      },
+      {
+        "name": "toon3.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\toon3.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 17,
+    "mat_name": "眼睛",
+    "textures": [
+      {
+        "name": "脸.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\脸.png"
+      }
+    ]
+  },
+  {
+    "obj": "礼服八重樱2.0_mesh",
+    "slot": 18,
+    "mat_name": "表情",
+    "textures": [
+      {
+        "name": "bq.png",
+        "filepath": "E:\\崩坏三模型\\崩坏3\\八重樱\\八重樱_礼服\\礼服八重樱-纸月寒绯\\bq.png"
+      }
+    ]
+  }
+]
