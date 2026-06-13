@@ -6478,7 +6478,7 @@ PrefabInstance:
       objectReference: {fileID: 1752777408}
     - target: {fileID: 919132149155446097, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Name
-      value: YaeSakura_Character
+      value: YaeSakura
       objectReference: {fileID: 0}
     - target: {fileID: 935642901060442775, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7753,99 +7753,6 @@ Material:
     m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!1001 &951273863
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.00000004371139
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8310721655521180311, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8f20d98515923764a9e09c9540c91e71, type: 2}
-    - target: {fileID: -6996155331053753830, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 550a0f1ab1ab2cb46bdddf21263f253d, type: 2}
-    - target: {fileID: -287959571676025015, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b1ee1ddf3a5963f4fb4e03497fcc77cb, type: 2}
-    - target: {fileID: 919132149155446097, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Name
-      value: YaeSakura
-      objectReference: {fileID: 0}
-    - target: {fileID: 969990585209056926, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e2f2497c2b924e549a7a1940c3599c3c, type: 2}
-    - target: {fileID: 1497132510178137869, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6eaa357e737619741a80e40ad85dd330, type: 2}
-    - target: {fileID: 3382325126729524586, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b4b168024216c16438aef053c84ec8af, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3a7b2dfb3ebebac47a4895cab3f4cd62, type: 3}
 --- !u!21 &958705002
 Material:
   serializedVersion: 8
@@ -15952,5 +15859,4 @@ SceneRoots:
   - {fileID: 1182900736}
   - {fileID: 2085342958}
   - {fileID: 688129251}
-  - {fileID: 951273863}
   - {fileID: 921317111}
