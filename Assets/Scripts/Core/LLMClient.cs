@@ -47,6 +47,7 @@ namespace YaeSakura
             request.Headers.Add("Authorization", $"Bearer {_config.apiKey}");
             request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
+            var fullText = new StringBuilder();
             try
             {
                 var response = await _http.SendAsync(
@@ -58,7 +59,6 @@ namespace YaeSakura
 
                 using var stream = await response.Content.ReadAsStreamAsync();
                 using var reader = new StreamReader(stream);
-                var fullText = new StringBuilder();
 
                 while (!reader.EndOfStream && !cancel.IsCancellationRequested)
                 {
