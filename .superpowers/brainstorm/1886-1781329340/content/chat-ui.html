@@ -1,0 +1,130 @@
+<h2>聊天 UI 设计</h2>
+<p class="subtitle">Unity uGUI 实现，参考 2D 版本的交互体验</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">聊天面板布局</div>
+    <div class="mockup-body" style="background:#12122a;padding:12px;border-radius:4px;min-height:320px">
+      <!-- 标题栏 -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px">
+        <span style="color:#e8a0bf;font-size:12px">八重樱 · 圣痕之庭</span>
+        <div style="display:flex;gap:4px">
+          <span style="background:rgba(255,255,255,0.1);border-radius:4px;padding:2px 6px;font-size:9px;color:#888">⛭ 设置</span>
+          <span style="background:rgba(255,255,255,0.1);border-radius:4px;padding:2px 6px;font-size:9px;color:#888">□ 悬浮窗</span>
+        </div>
+      </div>
+
+      <!-- 消息列表 -->
+      <div style="background:rgba(255,255,255,0.02);border-radius:4px;padding:6px;margin-bottom:8px;min-height:180px;overflow:hidden">
+        <div style="font-size:10px;color:#555;text-align:center;margin-bottom:6px">━━ 刚才 ━━</div>
+
+        <!-- 用户气泡 -->
+        <div style="display:flex;justify-content:flex-end;margin-bottom:6px">
+          <div style="background:#2a3a5a;padding:4px 8px;border-radius:8px 8px 0 8px;max-width:70%;font-size:10px;color:#ccc">今天天气不错呢</div>
+        </div>
+
+        <!-- 八重樱气泡 -->
+        <div style="display:flex;gap:4px;margin-bottom:6px">
+          <div style="background:#3a1a3a;padding:4px 8px;border-radius:8px 8px 8px 0;max-width:75%;font-size:10px;color:#e8d0e0">是啊，这样的日子最适合在庭院里喝茶了。（端起茶杯，狐耳微动）</div>
+        </div>
+
+        <!-- 动作行 -->
+        <div style="text-align:center;color:#888;font-size:9px;font-style:italic;margin-bottom:6px">（狐耳微动，望向窗外的樱树）</div>
+
+        <!-- TTS 状态 -->
+        <div style="display:flex;align-items:center;gap:3px;font-size:9px;color:#4a7">
+          <span>🔊</span>
+          <span style="width:8px;height:8px;background:#4a7;border-radius:50%;display:inline-block"></span>
+          <span>正在说话...</span>
+        </div>
+      </div>
+
+      <!-- 输入区域 -->
+      <div style="display:flex;gap:4px">
+        <textarea class="mock-input" placeholder="输入消息..." style="flex:1;resize:none;min-height:36px;font-size:11px;padding:6px"></textarea>
+        <button class="mock-button" style="font-size:11px;padding:4px 10px">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">设置面板 (侧边栏)</div>
+    <div class="mockup-body" style="background:#12122a;padding:12px;border-radius:4px;min-height:320px">
+      <div style="font-size:11px;color:#e8a0bf;margin-bottom:8px">⚙ 设置</div>
+
+      <div style="margin-bottom:12px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">API 运营商</div>
+        <div style="display:flex;gap:4px">
+          <span style="padding:3px 8px;border-radius:12px;font-size:9px;background:#e8a0bf;color:#1a1a2e">DeepSeek</span>
+          <span style="padding:3px 8px;border-radius:12px;font-size:9px;background:rgba(255,255,255,0.1);color:#888">千问</span>
+          <span style="padding:3px 8px;border-radius:12px;font-size:9px;background:rgba(255,255,255,0.1);color:#888">MiMo</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:12px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">模型</div>
+        <select style="background:#1a1a2e;color:#ccc;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:4px;font-size:10px;width:100%">
+          <option>deepseek-chat</option>
+          <option>deepseek-reasoner</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:12px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">语音 · GPT-SoVITS</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:10px;color:#4a7">● 已连接</span>
+          <button class="mock-button" style="font-size:9px;padding:2px 8px">断开</button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:12px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">自动回复</div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:10px;color:#aaa">超时</span>
+          <select style="background:#1a1a2e;color:#ccc;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:4px;font-size:10px">
+            <option>5 分钟</option>
+            <option>10 分钟</option>
+            <option>关闭</option>
+          </select>
+        </div>
+      </div>
+
+      <hr style="border-color:rgba(255,255,255,0.05);margin:12px 0">
+
+      <div style="margin-bottom:8px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">API Key</div>
+        <input class="mock-input" type="password" placeholder="sk-..." style="width:100%;font-size:10px;padding:4px;box-sizing:border-box">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>UI 实现要点</h3>
+  <table style="width:100%;font-size:12px;border-collapse:collapse">
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:6px;color:#e8a0bf;width:120px">对话气泡</td>
+      <td style="padding:6px;color:#aaa">ScrollView + ContentSizeFitter，用户右侧蓝色，角色左侧紫色</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:6px;color:#e8a0bf">流式逐字</td>
+      <td style="padding:6px;color:#aaa">每收到 chunk 更新 Text 组件内容，遇。！？断句创建新气泡</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:6px;color:#e8a0bf">动作行</td>
+      <td style="padding:6px;color:#aaa">括号内容提取为独立居中 Text，灰色斜体，与对话气泡分开</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:6px;color:#e8a0bf">输入框</td>
+      <td style="padding:6px;color:#aaa">InputField 多行 + 回车发送 (Shift+回车换行) + 发送按钮</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:6px;color:#e8a0bf">设置面板</td>
+      <td style="padding:6px;color:#aaa">侧边栏滑出 (Animator)，API 配置、TTS 连接、自动回复等</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;color:#e8a0bf">API Key</td>
+      <td style="padding:6px;color:#aaa">PlayerPrefs 存储（gitignore 替代 .env），非敏感配置用 JSON</td>
+    </tr>
+  </table>
+</div>

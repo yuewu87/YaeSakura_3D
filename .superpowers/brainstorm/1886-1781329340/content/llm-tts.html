@@ -1,0 +1,109 @@
+<h2>LLM 与 TTS 接入设计</h2>
+<p class="subtitle">Unity C# 直连，无 Python 中间层</p>
+
+<div class="section">
+  <h3>LLM 客户端设计</h3>
+  <pre style="background:#1a1a2e;padding:16px;border-radius:8px;font-size:13px;line-height:1.6">
+// 核心类：LLMStreamClient.cs
+// 使用 Unity HttpClient + StreamReader 逐行读取 SSE
+
+class LLMStreamClient {
+    // 配置
+    string apiUrl;      // OpenAI 兼容 endpoint
+    string apiKey;
+    string model;       // deepseek-chat / qwen-turbo / ...
+
+    // 流式调用
+    async Task SendStream(
+        List<Message> history,        // 对话历史
+        Action<string> onChunk,       // 逐字回调
+        Action<string> onComplete,    // 完成回调
+        CancellationToken cancel
+    );
+
+    // 非流式（用于记忆提取等场景）
+    async Task<string> SendSync(List<Message> history);
+}
+
+// 消息结构
+struct Message {
+    string role;     // system / user / assistant
+    string content;
+}
+  </pre>
+
+  <div style="margin-top:12px;display:flex;gap:12px">
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px">
+      <h4 style="margin:0 0 8px;font-size:13px;color:#e8a0bf">多运营商支持</h4>
+      <p style="font-size:12px;color:#999;margin:0">统一 OpenAI 兼容格式，DeepSeek / Qwen / MiMo 通过配置切换</p>
+    </div>
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px">
+      <h4 style="margin:0 0 8px;font-size:13px;color:#e8a0bf">思考模式</h4>
+      <p style="font-size:12px;color:#999;margin:0">支持 reasoning_content，思考链作为独立显示或隐藏</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px">
+  <h3>TTS 客户端设计</h3>
+  <pre style="background:#1a1a2e;padding:16px;border-radius:8px;font-size:13px;line-height:1.6">
+// 核心类：TTSWebSocketClient.cs
+// 连接 GPT-SoVITS WebSocket (ws://localhost:8770)
+
+class TTSWebSocketClient {
+    string serverUrl = "ws://localhost:8770";
+
+    // 连接管理
+    async Task Connect();
+    Task Disconnect();
+    bool IsConnected { get; }
+
+    // 合成请求
+    // text → WebSocket → GPT-SoVITS → 音频数据 (WAV bytes)
+    async Task<AudioClip> Synthesize(
+        string text,
+        string character = "sakura"  // 角色音色
+    );
+
+    // 排队播放（避免重叠）
+    void EnqueuePlayback(AudioClip clip);
+    void StopPlayback(bool fadeOut = true);  // 渐弱停止
+}
+
+// 播放策略
+// 1. 断句后顺序合成
+// 2. AudioSource 排队播放
+// 3. 新消息到达 → 渐弱停止当前 + 清空队列
+  </pre>
+
+  <div style="margin-top:12px;display:flex;gap:12px">
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px">
+      <h4 style="margin:0 0 8px;font-size:13px;color:#e8a0bf">口型同步</h4>
+      <p style="font-size:12px;color:#999;margin:0">音频播放时根据振幅驱动 BlendShape，角色嘴部同步开合</p>
+    </div>
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px">
+      <h4 style="margin:0 0 8px;font-size:13px;color:#e8a0bf">打断渐弱</h4>
+      <p style="font-size:12px;color:#999;margin:0">新消息 → 5 步渐弱 (150ms) → 停止 → 恢复音量，避免爆音</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px">
+  <h3>对话流程（Stream + TTS 联动）</h3>
+  <pre style="background:#1a1a2e;padding:16px;border-radius:8px;font-size:13px;line-height:1.6">
+LLM 流式输出
+  │
+  ├─ onChunk("旅人")  → 气泡追加 "旅人"
+  ├─ onChunk("，")    → 气泡追加 "，"
+  ├─ onChunk("今日")  → 气泡追加 "今日"
+  ├─ onChunk("的")    → ...
+  ├─ onChunk("樱花")  → ...
+  ├─ onChunk("开得")  → ...
+  ├─ onChunk("真好")  → ...
+  ├─ onChunk("。")    → 断句！→ 第一句合成请求 → TTS 排队
+  ├─ onChunk("要")    → 第二句开始...
+  │   ...
+  └─ onComplete()     → 最后一句合成 → TTS 排队
+                      → 触发自动提取记忆（后期）
+  </pre>
+</div>

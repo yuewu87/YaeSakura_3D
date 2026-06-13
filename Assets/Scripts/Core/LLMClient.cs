@@ -89,7 +89,7 @@ namespace YaeSakura
             }
             catch (OperationCanceledException)
             {
-                onComplete?.Invoke("");
+                onComplete?.Invoke(fullText.ToString());
             }
             catch (Exception ex)
             {

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__funplay__execute_code",
+      "mcp__funplay__capture_scene_view",
+      "Bash(bash *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "mcp__funplay__request_recompile",
+      "mcp__funplay__get_compilation_errors",
+      "Bash(git commit *)",
+      "mcp__funplay__get_editor_state",
+      "mcp__funplay__get_reload_recovery_status"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "funplay"
+  ]
+}

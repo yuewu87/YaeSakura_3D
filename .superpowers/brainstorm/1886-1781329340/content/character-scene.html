@@ -1,0 +1,69 @@
+<h2>角色动画与场景搭建</h2>
+<p class="subtitle">MMD → FBX 管线 + 初始场景方案</p>
+
+<div class="section">
+  <h3>角色模型管线</h3>
+  <pre style="background:#1a1a2e;padding:16px;border-radius:8px;font-size:12px;line-height:1.6">
+MMD 模型 (.pmx + .vmd)
+    │
+    ▼  Blender (插件: mmd_tools / blender_mmd_tools)
+    │   · 导入 PMX 模型 + 贴图
+    │   · 修正材质、贴图路径
+    │   · 导出 FBX (含骨架 + BlendShape)
+    │
+    ▼  Unity
+    │   · 导入 FBX (Rig: Humanoid 或 Generic)
+    │   · 配置材质 (Shader: URP Lit)
+    │   · 提取 Animation Clip (如果有动作)
+    │   · 配置 BlendShape 映射 (口型、表情)
+    │
+    ▼  Animator Controller
+        · Idle 动画循环
+        · 口型 BlendShape (Mouth_Open → 0~1)
+        · 表情 BlendShape (Smile / Surprised / Sad)
+  </pre>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>初始场景 — 两步走</h3>
+
+  <div style="display:flex;gap:16px;margin-top:12px">
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border-left:3px solid #e8a0bf">
+      <h4 style="margin:0 0 6px;font-size:13px;color:#e8a0bf">第1步：先跑起来</h4>
+      <ul style="font-size:12px;color:#aaa;margin:0;padding-left:16px">
+        <li>简单地面 + 天空盒</li>
+        <li>角色站中心，镜头正对</li>
+        <li>Chat UI 覆盖</li>
+        <li>LLM + TTS 直连</li>
+        <li>快速验证核心交互</li>
+      </ul>
+      <p style="font-size:11px;color:#666;margin:8px 0 0">目标：1-2 天能看到效果</p>
+    </div>
+
+    <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border-left:3px solid #6b8cce">
+      <h4 style="margin:0 0 6px;font-size:13px;color:#6b8cce">第2步：神社场景</h4>
+      <ul style="font-size:12px;color:#aaa;margin:0;padding-left:16px">
+        <li>寻找/搭建八重村场景</li>
+        <li>鸟居、樱花树、神社建筑</li>
+        <li>粒子效果 (樱花瓣)</li>
+        <li>光照烘焙</li>
+        <li>后处理 (Bloom, Color Grading)</li>
+      </ul>
+      <p style="font-size:11px;color:#666;margin:8px 0 0">模型资源到位后迭代</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>摄像机方案</h3>
+  <table style="width:100%;font-size:12px;border-collapse:collapse">
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:8px;color:#e8a0bf">悬浮窗模式</td>
+      <td style="padding:8px;color:#aaa">固定机位，角色正面半身，RenderTexture → UI RawImage<br>背景透明（DWM），角色仿佛站在桌面上</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.08)">
+      <td style="padding:8px;color:#e8a0bf">全屏模式</td>
+      <td style="padding:8px;color:#aaa">自由视角，鼠标拖动缓慢缓动旋转<br>WASD 或鼠标滚轮缩放，模拟舰桥交互</td>
+    </tr>
+  </table>
+</div>

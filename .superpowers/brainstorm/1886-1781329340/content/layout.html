@@ -1,0 +1,85 @@
+<h2>场景与 UI 布局设计</h2>
+<p class="subtitle">两种模式：桌面悬浮窗 vs 全屏 3D 场景</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">模式 A — 桌面悬浮窗</div>
+    <div class="mockup-body">
+      <div style="background:linear-gradient(135deg, #1a1a3e, #2d1b3e);padding:20px;border-radius:4px;position:relative;min-height:280px">
+        <div style="text-align:center;color:#8a8aaa;font-size:10px;margin-bottom:8px">桌面透明背景</div>
+
+        <!-- 角色区域 -->
+        <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:12px;text-align:center;margin-bottom:10px;min-height:120px">
+          <div style="color:#ccc;font-size:11px">3D 角色渲染</div>
+          <div style="color:#888;font-size:10px;margin-top:4px">八重樱 · 神社场景 · 正交/透视</div>
+          <div class="placeholder" style="margin-top:8px;height:80px">角色模型区域 (RenderTexture)</div>
+        </div>
+
+        <!-- 聊天 UI 覆盖 -->
+        <div style="background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);border-radius:8px;padding:8px;position:absolute;bottom:8px;left:8px;right:8px">
+          <div style="color:#bbb;font-size:10px;margin-bottom:4px;max-height:60px;overflow:hidden">
+            <span style="color:#e8a0bf">八重樱：</span>旅人，今日的樱花开得格外好呢。（狐耳微动）
+          </div>
+          <div style="display:flex;gap:4px">
+            <input class="mock-input" placeholder="输入消息..." style="flex:1;font-size:10px;padding:4px 8px">
+            <button class="mock-button" style="font-size:10px;padding:4px 8px">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">模式 B — 全屏 3D 场景</div>
+    <div class="mockup-body">
+      <div style="background:linear-gradient(135deg, #0d0d1a, #1a0d2e);padding:20px;border-radius:4px;position:relative;min-height:280px">
+        <div style="text-align:center;color:#8a8aaa;font-size:10px;margin-bottom:8px">全屏 3D 场景</div>
+
+        <!-- 全屏场景 -->
+        <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:8px;text-align:center;margin-bottom:10px;min-height:140px">
+          <div style="color:#ccc;font-size:11px">完整 3D 神社场景</div>
+          <div style="color:#888;font-size:10px;margin-top:4px">鸟居 · 樱花树 · 神社建筑 · 角色</div>
+          <div class="placeholder" style="margin-top:8px;height:100px">自由视角 / 摄像机缓动</div>
+        </div>
+
+        <!-- 右下角对话面板 -->
+        <div style="background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);border-radius:8px;padding:8px;position:absolute;bottom:8px;right:8px;width:55%">
+          <div style="color:#bbb;font-size:10px;margin-bottom:4px;max-height:60px;overflow:hidden">
+            <span style="color:#e8a0bf">八重樱：</span>这里的樱树，永远不会凋零...
+          </div>
+          <div style="display:flex;gap:4px">
+            <input class="mock-input" placeholder="输入消息..." style="flex:1;font-size:10px;padding:4px 8px">
+            <button class="mock-button" style="font-size:10px;padding:4px 8px">发送</button>
+          </div>
+        </div>
+
+        <!-- 模式切换 -->
+        <div style="position:absolute;top:8px;right:8px">
+          <button class="mock-button" style="font-size:9px;padding:2px 6px;opacity:0.7">◱ 悬浮窗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px">
+  <h3>关键设计决策</h3>
+  <table style="width:100%;font-size:13px;border-collapse:collapse">
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+      <td style="padding:8px;color:#aaa">角色渲染</td>
+      <td style="padding:8px">Camera → RenderTexture → RawImage (UI)，独立于场景相机</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+      <td style="padding:8px;color:#aaa">桌面透明</td>
+      <td style="padding:8px">Windows DWM + 透明 Shader，角色浮于桌面之上</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+      <td style="padding:8px;color:#aaa">模式切换</td>
+      <td style="padding:8px">一键切换悬浮窗/全屏，场景相机和 UI 布局联动</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+      <td style="padding:8px;color:#aaa">对话 UI</td>
+      <td style="padding:8px">Unity uGUI 实现：ScrollView 气泡列表 + 底部输入栏</td>
+    </tr>
+  </table>
+</div>

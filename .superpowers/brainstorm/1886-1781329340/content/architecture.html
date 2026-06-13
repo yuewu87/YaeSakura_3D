@@ -1,0 +1,40 @@
+<h2>3D八重樱 — 架构方案对比</h2>
+<p class="subtitle">核心体验：3D角色 + LLM流式对话 + TTS语音合成</p>
+
+<div class="options" data-multiselect>
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>单体 Unity 架构</h3>
+      <p>全部在 Unity C# 中实现：HttpClient 调 LLM API (流式)、WebSocket 连 GPT-SoVITS、场景管理、UI (uGUI/UI Toolkit)</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4><ul><li>单一项目，无外部依赖</li><li>C# 原生，性能好</li><li>打包部署简单</li></ul></div>
+        <div class="cons"><h4>劣势</h4><ul><li>HTTP/WS 需手写</li><li>没有现成的记忆系统</li><li>调试 LLM 交互不如 Python 方便</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Unity + Python 桥接</h3>
+      <p>Unity 负责 3D 渲染和 UI，Python 后端负责 LLM API、TTS 连接、记忆系统等所有非渲染逻辑</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4><ul><li>复用现有 Python 代码</li><li>记忆系统直接继承</li><li>逻辑和渲染分离清晰</li></ul></div>
+        <div class="cons"><h4>劣势</h4><ul><li>多进程通信复杂</li><li>需要 Python 运行环境</li><li>部署复杂度高</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>混合渐进</h3>
+      <p>先在 Unity 中实现 UI + 3D 角色 + LLM 直连 + TTS 客户端，后期需要记忆系统时再通过 localhost HTTP 与 Python 后端通信</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4><ul><li>起步快，无外部依赖</li><li>后期可扩展</li><li>当下即可看到效果</li></ul></div>
+        <div class="cons"><h4>劣势</h4><ul><li>记忆系统需后期加</li><li>架构边界需提前设计好</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
