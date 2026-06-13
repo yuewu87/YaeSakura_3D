@@ -47,8 +47,8 @@ namespace YaeSakura
             var titleGO = new GameObject("TitleBar");
             titleGO.transform.SetParent(transform, false);
             var titleRT = titleGO.AddComponent<RectTransform>();
-            titleRT.anchorMin = new Vector2(0.1f, 0.92f);
-            titleRT.anchorMax = new Vector2(0.9f, 1);
+            titleRT.anchorMin = new Vector2(0.7f, 0.92f);
+            titleRT.anchorMax = new Vector2(1f, 1);
             titleRT.offsetMin = Vector2.zero;
             titleRT.offsetMax = Vector2.zero;
             var titleBg = titleGO.AddComponent<UnityEngine.UI.Image>();
@@ -71,8 +71,8 @@ namespace YaeSakura
             var containerGO = new GameObject("ChatContainer");
             containerGO.transform.SetParent(transform, false);
             var containerRT = containerGO.AddComponent<RectTransform>();
-            containerRT.anchorMin = new Vector2(0.1f, 0.08f);
-            containerRT.anchorMax = new Vector2(0.9f, 0.92f);
+            containerRT.anchorMin = new Vector2(0.7f, 0.08f);
+            containerRT.anchorMax = new Vector2(0.98f, 0.92f);
             containerRT.offsetMin = Vector2.zero;
             containerRT.offsetMax = Vector2.zero;
             var containerBg = containerGO.AddComponent<UnityEngine.UI.Image>();
