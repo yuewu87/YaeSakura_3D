@@ -122,14 +122,14 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &96324253
+--- !u!21 &45194888
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -150,60 +150,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &149304626
+--- !u!21 &241656417
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &156417727
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -224,23 +191,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: dbac84df4ba068d468cbcaef2c80cc89, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &264675881
+--- !u!21 &391411372
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -261,14 +232,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &502369937
 GameObject:
@@ -319,14 +294,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &517300230
+--- !u!21 &580412126
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -347,51 +322,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &701008722
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &705507993
 GameObject:
@@ -487,14 +429,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!21 &730569335
+--- !u!21 &711269471
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -511,129 +453,22 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &819814268
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &863526029
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &924427816
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &963194225
 GameObject:
@@ -722,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9996151, z: -0.027745675, w: 0}
-  m_LocalPosition: {x: -0.6, y: 0.8838395, z: 1.767679}
+  m_LocalPosition: {x: -0.6, y: 1.412, z: 1.767679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -788,14 +623,55 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!21 &1066111946
+--- !u!21 &976393239
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1019931617
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -816,14 +692,59 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: dbac84df4ba068d468cbcaef2c80cc89, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1059736418
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1182900734
 GameObject:
@@ -953,6 +874,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1234314067
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1236611214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,14 +983,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1343134955
+--- !u!21 &1267200577
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -1045,18 +1007,22 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1001 &1366588411
 PrefabInstance:
@@ -1113,79 +1079,79 @@ PrefabInstance:
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 149304626}
+      objectReference: {fileID: 711269471}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 1667560161}
+      objectReference: {fileID: 1267200577}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 156417727}
+      objectReference: {fileID: 1639310853}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 819814268}
+      objectReference: {fileID: 1986568280}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 96324253}
+      objectReference: {fileID: 2015573002}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
-      objectReference: {fileID: 1402419557}
+      objectReference: {fileID: 1453293794}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: 1769609609}
+      objectReference: {fileID: 1675530898}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[7]
       value: 
-      objectReference: {fileID: 517300230}
+      objectReference: {fileID: 45194888}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[8]
       value: 
-      objectReference: {fileID: 1964272927}
+      objectReference: {fileID: 976393239}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[9]
       value: 
-      objectReference: {fileID: 264675881}
+      objectReference: {fileID: 241656417}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[10]
       value: 
-      objectReference: {fileID: 730569335}
+      objectReference: {fileID: 580412126}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[11]
       value: 
-      objectReference: {fileID: 1516644738}
+      objectReference: {fileID: 2051563135}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[12]
       value: 
-      objectReference: {fileID: 924427816}
+      objectReference: {fileID: 391411372}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[13]
       value: 
-      objectReference: {fileID: 1343134955}
+      objectReference: {fileID: 2091519803}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[14]
       value: 
-      objectReference: {fileID: 863526029}
+      objectReference: {fileID: 1234314067}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[15]
       value: 
-      objectReference: {fileID: 701008722}
+      objectReference: {fileID: 1059736418}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[16]
       value: 
-      objectReference: {fileID: 1710243858}
+      objectReference: {fileID: 1019931617}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[17]
       value: 
-      objectReference: {fileID: 1066111946}
+      objectReference: {fileID: 1623894242}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[18]
       value: 
-      objectReference: {fileID: 1785600142}
+      objectReference: {fileID: 2046921205}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -1686142827756024873, guid: 3501563224d68cd4982095498c5d5547, type: 3}
@@ -1618,14 +1584,14 @@ MonoBehaviour:
   sensitivity: 3
   smoothSpeed: 10
   minThreshold: 0.02
---- !u!21 &1402419557
+--- !u!21 &1453293794
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -1646,51 +1612,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1516644738
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1563310869
 GameObject:
@@ -1753,14 +1686,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1667560161
+--- !u!21 &1623894242
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -1777,18 +1710,104 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1639310853
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1675530898
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1679756122
 GameObject:
@@ -1834,117 +1853,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1710243858
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1769609609
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1785600142
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
-  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f4c0b7a0192a9934db0648770e0a8d05, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Brightness: 1
-    m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1963441124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,14 +1899,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1964272927
+--- !u!21 &1986568280
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YaeSakura/SimpleToon
+  m_Name: YaeSakura/AnimeToon
   m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -2019,14 +1927,141 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
     m_Colors:
-    - _ShadowColor: {r: 0.39999998, g: 0.29999998, b: 0.39999998, a: 1}
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &2015573002
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &2046921205
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f4c0b7a0192a9934db0648770e0a8d05, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &2051563135
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &2085342954
 GameObject:
@@ -2134,6 +2169,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2091519803
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YaeSakura/AnimeToon
+  m_Shader: {fileID: 4800000, guid: c1d558affdddc9e4e85c46f542a2f803, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 2800000, guid: 40b52378321e73e4b9f0c47a37937b47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 1.1
+    - _OutlineWidth: 0.004
+    - _RimPower: 3
+    m_Colors:
+    - _OutlineColor: {r: 0.09999997, g: 0.09999997, b: 0.14999998, a: 1}
+    - _RimColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _ShadowColor: {r: 0.54999995, g: 0.5, b: 0.6, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
