@@ -41,7 +41,8 @@
       "Bash(curl -s \"http://127.0.0.1:8766/\")",
       "Bash(curl -s http://127.0.0.1:8766/)",
       "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" python *)",
-      "Read(//e/EXE_THINGS/NR_output/**)"
+      "Read(//e/EXE_THINGS/NR_output/**)",
+      "Bash(git config *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &2303595
+--- !u!21 &14342910
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -215,9 +215,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &8324661
+--- !u!21 &39361998
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -310,152 +310,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!1 &61481480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 61481482}
-  - component: {fileID: 61481481}
-  m_Layer: 0
-  m_Name: PostProcessVolume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &61481481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61481480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: fa623d2d0aee5c74c84074557258f097, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!4 &61481482
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61481480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &267321033
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 267321035}
-  - component: {fileID: 267321034}
-  m_Layer: 0
-  m_Name: FillLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &267321034
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267321033}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 0.7, g: 0.75, b: 0.85, a: 1}
-  m_Intensity: 0.3
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 0
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &267321035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267321033}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.044943463, y: 0.95125127, z: -0.16773127, w: 0.25488704}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &288620580
+--- !u!21 &107169326
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -520,7 +377,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -548,9 +405,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &455267420
+--- !u!21 &147816960
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -582,7 +439,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapTex:
@@ -615,7 +472,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -643,58 +500,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!1 &502369937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 502369939}
-  - component: {fileID: 502369938}
-  m_Layer: 0
-  m_Name: PostProcessVolume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &502369938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502369937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: fa623d2d0aee5c74c84074557258f097, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!4 &502369939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502369937}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.425, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &684627896
+--- !u!21 &417653804
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -759,7 +567,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -787,7 +595,151 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
+--- !u!1 &502369937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502369939}
+  - component: {fileID: 502369938}
+  m_Layer: 0
+  m_Name: PostProcessVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &502369938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502369937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: fa623d2d0aee5c74c84074557258f097, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &502369939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502369937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.425, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &526091017
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &705507993
 GameObject:
@@ -883,7 +835,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!21 &735165161
+--- !u!21 &787633433
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -915,7 +867,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f4c0b7a0192a9934db0648770e0a8d05, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapTex:
@@ -948,7 +900,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -976,7 +928,102 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &949079514
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &963194225
 GameObject:
@@ -1131,7 +1178,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!21 &1023554339
+--- !u!21 &1102180716
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -1163,7 +1210,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: f4c0b7a0192a9934db0648770e0a8d05, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapTex:
@@ -1196,7 +1243,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -1224,481 +1271,7 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1056613307
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1128399632
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1155589057
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
---- !u!1 &1159462358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1159462360}
-  - component: {fileID: 1159462359}
-  m_Layer: 0
-  m_Name: RimLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1159462359
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159462358}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 0.9, g: 0.85, b: 1, a: 1}
-  m_Intensity: 0.25
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 0
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1159462360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159462358}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.022557566, y: 0.9622502, z: -0.08418598, w: -0.25783417}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1171198535
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1182900734
 GameObject:
@@ -1822,12 +1395,107 @@ Transform:
   m_GameObject: {fileID: 1182900734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1207257107
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1236611214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,101 +1564,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1277610206
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &1366588411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,79 +1619,79 @@ PrefabInstance:
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 684627896}
+      objectReference: {fileID: 1892609454}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 1128399632}
+      objectReference: {fileID: 417653804}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 8324661}
+      objectReference: {fileID: 1578411213}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 288620580}
+      objectReference: {fileID: 147816960}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 1056613307}
+      objectReference: {fileID: 1870719046}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
-      objectReference: {fileID: 1155589057}
+      objectReference: {fileID: 39361998}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: 1567196793}
+      objectReference: {fileID: 14342910}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[7]
       value: 
-      objectReference: {fileID: 1611267349}
+      objectReference: {fileID: 2064881513}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[8]
       value: 
-      objectReference: {fileID: 1277610206}
+      objectReference: {fileID: 1207257107}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[9]
       value: 
-      objectReference: {fileID: 2303595}
+      objectReference: {fileID: 1530603372}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[10]
       value: 
-      objectReference: {fileID: 1171198535}
+      objectReference: {fileID: 1836242949}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[11]
       value: 
-      objectReference: {fileID: 1777909616}
+      objectReference: {fileID: 787633433}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[12]
       value: 
-      objectReference: {fileID: 1693779846}
+      objectReference: {fileID: 107169326}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[13]
       value: 
-      objectReference: {fileID: 1837438336}
+      objectReference: {fileID: 949079514}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[14]
       value: 
-      objectReference: {fileID: 1023554339}
+      objectReference: {fileID: 526091017}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[15]
       value: 
-      objectReference: {fileID: 455267420}
+      objectReference: {fileID: 1370436289}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[16]
       value: 
-      objectReference: {fileID: 1447818816}
+      objectReference: {fileID: 1372450854}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[17]
       value: 
-      objectReference: {fileID: 1453379301}
+      objectReference: {fileID: 1827233944}
     - target: {fileID: 2940932044181556069, guid: 3501563224d68cd4982095498c5d5547, type: 3}
       propertyPath: m_Materials.Array.data[18]
       value: 
-      objectReference: {fileID: 735165161}
+      objectReference: {fileID: 1102180716}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -1686142827756024873, guid: 3501563224d68cd4982095498c5d5547, type: 3}
@@ -2551,7 +2124,7 @@ MonoBehaviour:
   sensitivity: 3
   smoothSpeed: 10
   minThreshold: 0.02
---- !u!21 &1447818816
+--- !u!21 &1370436289
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -2616,7 +2189,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -2644,9 +2217,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1453379301
+--- !u!21 &1372450854
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -2711,7 +2284,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -2739,7 +2312,102 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1530603372
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1563310869
 GameObject:
@@ -2802,7 +2470,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1567196793
+--- !u!21 &1578411213
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -2867,7 +2535,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -2895,102 +2563,7 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1611267349
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VRM10/MToon10
-  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MatcapTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineWidthTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RimTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadeTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadingShiftTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _UvAnimMaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaMode: 0
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DoubleSided: 0
-    - _GiEqualization: 0.4
-    - _M_AlphaToMask: 0
-    - _M_CullMode: 2
-    - _M_DebugMode: 0
-    - _M_DstBlend: 0
-    - _M_EditMode: 0
-    - _M_SrcBlend: 1
-    - _M_ZWrite: 1
-    - _OutlineLightingMix: 1
-    - _OutlineWidth: 0
-    - _OutlineWidthMode: 0
-    - _RenderQueueOffset: 0
-    - _RimFresnelPower: 5
-    - _RimLift: 0
-    - _RimLightingMix: 1
-    - _ShadingShiftFactor: -0.05
-    - _ShadingShiftTexScale: 1
-    - _ShadingToonyFactor: 0.95
-    - _TransparentWithZWrite: 0
-    - _UvAnimRotationSpeed: 0
-    - _UvAnimScrollXSpeed: 0
-    - _UvAnimScrollYSpeed: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1679756122
 GameObject:
@@ -3036,7 +2609,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1693779846
+--- !u!21 &1827233944
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3068,7 +2641,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c628c509075e4d438f479071d14c143, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatcapTex:
@@ -3101,7 +2674,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -3129,9 +2702,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1777909616
+--- !u!21 &1836242949
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3196,7 +2769,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -3224,9 +2797,9 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1837438336
+--- !u!21 &1870719046
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3291,7 +2864,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DoubleSided: 0
-    - _GiEqualization: 0.4
+    - _GiEqualization: 0.9
     - _M_AlphaToMask: 0
     - _M_CullMode: 2
     - _M_DebugMode: 0
@@ -3319,7 +2892,102 @@ Material:
     - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadeColor: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &1892609454
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 086c1590a21906846b3711e8c8df0ff9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
   m_BuildTextureStacks: []
 --- !u!1 &1963441124
 GameObject:
@@ -3367,6 +3035,101 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2064881513
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VRM10/MToon10
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4e429de6ce1b1414891bdb5b0851e2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 0
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 0
+    - _M_CullMode: 2
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 0
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 1
+    - _OutlineWidth: 0
+    - _OutlineWidthMode: 0
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 5
+    - _RimLift: 0
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: -0.05
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.95
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MatcapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 0.65, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &2085342954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3250,3 @@ SceneRoots:
   - {fileID: 1563310872}
   - {fileID: 1366588411}
   - {fileID: 502369939}
-  - {fileID: 61481482}
-  - {fileID: 267321035}
-  - {fileID: 1159462360}
