@@ -96,32 +96,55 @@ namespace YaeSakura
             );
         }
 
-        /// Split response into bubbles and actions, matching Python split_response().
+        /// Split response into bubbles and actions in original order.
         private void DisplayResponse(string fullText)
         {
-            // 1. Extract actions: （...） → separate action lines
-            var actions = new List<string>();
-            foreach (Match m in BracketAction.Matches(fullText))
-                actions.Add(m.Groups[1].Value);
-
-            // 2. Remove brackets from text, split by sentence ends
-            var clean = BracketAction.Replace(fullText, "");
-            var sentences = SentenceEnd.Split(clean);
-
-            // 3. Display each sentence as a bubble
-            foreach (var s in sentences)
+            var current = new System.Text.StringBuilder();
+            for (int i = 0; i < fullText.Length; i++)
             {
-                var trimmed = s.Trim();
-                if (string.IsNullOrEmpty(trimmed)) continue;
-                chatPanel?.AddBubble(trimmed, false);
-                _tts?.EnqueueSynthesis(trimmed);
+                char c = fullText[i];
+                if (c == '（' || c == '(')
+                {
+                    // Flush current dialogue text before the bracket
+                    var prefixes = current.ToString().Trim();
+                    current.Clear();
+                    // Split by sentence ends and display
+                    ShowSentences(prefixes);
+
+                    // Collect action until closing bracket
+                    var action = new System.Text.StringBuilder();
+                    i++; // skip opening bracket
+                    while (i < fullText.Length && fullText[i] != '）' && fullText[i] != ')')
+                    {
+                        action.Append(fullText[i]);
+                        i++;
+                    }
+                    // i now at closing bracket, loop will advance past it
+
+                    var act = action.ToString().Trim();
+                    if (!string.IsNullOrWhiteSpace(act))
+                        chatPanel?.AddActionLine(act);
+                }
+                else
+                {
+                    current.Append(c);
+                }
             }
 
-            // 4. Display action lines
-            foreach (var a in actions)
+            // Flush remaining text
+            ShowSentences(current.ToString());
+        }
+
+        private void ShowSentences(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return;
+            var parts = SentenceEnd.Split(text);
+            foreach (var p in parts)
             {
-                if (!string.IsNullOrWhiteSpace(a))
-                    chatPanel?.AddActionLine(a);
+                var s = p.Trim();
+                if (string.IsNullOrEmpty(s)) continue;
+                chatPanel?.AddBubble(s, false);
+                _tts?.EnqueueSynthesis(s);
             }
         }
 
