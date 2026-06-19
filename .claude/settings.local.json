@@ -4,7 +4,10 @@
       "Bash(rm -rf Assets/Models/YaeSakura Assets/Models/YaeSakura.meta Assets/Models/Characters/YaeSakura_Dress/rounded_card.png Assets/Models/Characters/YaeSakura_Dress/rounded_card.png.meta)",
       "Bash(git add *)",
       "Bash(git commit -m 'cleanup: remove unused assets, shaders, NR files, old model *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "mcp__funplay__execute_code",
+      "mcp__funplay__capture_scene_view",
+      "Bash(git commit *)"
     ]
   }
 }
