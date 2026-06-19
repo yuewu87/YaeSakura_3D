@@ -1,52 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "mcp__funplay__execute_code",
-      "mcp__funplay__capture_scene_view",
-      "Bash(bash *)",
+      "Bash(rm -rf Assets/Models/YaeSakura Assets/Models/YaeSakura.meta Assets/Models/Characters/YaeSakura_Dress/rounded_card.png Assets/Models/Characters/YaeSakura_Dress/rounded_card.png.meta)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)",
-      "mcp__funplay__request_recompile",
-      "mcp__funplay__get_compilation_errors",
-      "Bash(git commit *)",
-      "mcp__funplay__get_editor_state",
-      "mcp__funplay__get_reload_recovery_status",
-      "mcp__funplay__enter_play_mode",
-      "mcp__funplay__get_console_logs",
-      "mcp__funplay__capture_game_view",
-      "mcp__funplay__exit_play_mode",
-      "Read(//e/崩坏三模型/崩坏3/八重樱/fbx/**)",
-      "Bash(cp \"E:/崩坏三模型/崩坏3/八重樱/fbx/八重樱/八重樱.FBX\" \"E:/Study_Projects/Yae_sakura_3D/YaeSakura_3D/Assets/Models/YaeSakura/\")",
-      "Bash(cp \"E:/崩坏三模型/崩坏3/八重樱/fbx/八重樱/\"*.png \"E:/Study_Projects/Yae_sakura_3D/YaeSakura_3D/Assets/Models/YaeSakura/\")",
-      "Read(//e/崩坏三模型/崩坏3/八重樱/_八重樱_逆神巫女/**)",
-      "Read(//e/崩坏三模型/崩坏3/八重樱/**)",
-      "Bash(unzip -l \"E:/崩坏三模型/崩坏3/八重樱/_八重樱_逆神巫女/_NULL_\\(【人物CG模型】崩坏3rd 八重樱\\)_爱给网_aigei_com.zip\")",
-      "WebSearch",
-      "Bash(uvx --help)",
-      "Bash(uv tool *)",
-      "Bash(where uvx *)",
-      "Bash(command -v uvx)",
-      "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" blender-mcp *)",
-      "Bash(tasklist)",
-      "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" --help)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe python *)",
-      "mcp__funplay__get_hierarchy",
-      "mcp__funplay__wait_for_compilation",
-      "Bash(git push *)",
-      "Bash(curl -sL \"https://api.github.com/repos/saturday06/VRM-Addon-for-Blender/releases/latest\")",
-      "Bash(curl -sL \"https://github.com/saturday06/VRM-Addon-for-Blender/releases/download/v4.2.4/VRM_Addon_for_Blender-4_2_4.zip\" -o \"/tmp/vrm_addon.zip\")",
-      "Bash(curl -sL \"https://github.com/saturday06/VRM-Addon-for-Blender/releases/download/v4.2.4/VRM_Addon_for_Blender-4_2_4.zip\" -o \"E:\\\\Study_Projects\\\\Yae_sakura_3D\\\\YaeSakura_3D\\\\.claude\\\\vrm_addon.zip\")",
-      "Bash('C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe' python -c ' *)",
-      "Bash(curl -s \"http://127.0.0.1:8766/\")",
-      "Bash(curl -s http://127.0.0.1:8766/)",
-      "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" python *)",
-      "Read(//e/EXE_THINGS/NR_output/**)",
-      "Bash(git config *)"
+      "Bash(git commit -m 'cleanup: remove unused assets, shaders, NR files, old model *)",
+      "Bash(git push *)"
     ]
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "funplay"
-  ]
+  }
 }
