@@ -39,7 +39,9 @@
       "Bash(curl -sL \"https://github.com/saturday06/VRM-Addon-for-Blender/releases/download/v4.2.4/VRM_Addon_for_Blender-4_2_4.zip\" -o \"E:\\\\Study_Projects\\\\Yae_sakura_3D\\\\YaeSakura_3D\\\\.claude\\\\vrm_addon.zip\")",
       "Bash('C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe' python -c ' *)",
       "Bash(curl -s \"http://127.0.0.1:8766/\")",
-      "Bash(curl -s http://127.0.0.1:8766/)"
+      "Bash(curl -s http://127.0.0.1:8766/)",
+      "Bash(\"C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe\" python *)",
+      "Read(//e/EXE_THINGS/NR_output/**)"
     ]
   },
   "enableAllProjectMcpServers": true,
