@@ -131,8 +131,10 @@ namespace YaeSakura
         {
             if (evt.keyCode == KeyCode.Return && !evt.shiftKey)
             {
-                SendMessage();
+                evt.PreventDefault();
                 evt.StopPropagation();
+                // Delay to avoid race with UI Toolkit text insertion
+                _input.schedule.Execute(() => SendMessage());
             }
         }
 
