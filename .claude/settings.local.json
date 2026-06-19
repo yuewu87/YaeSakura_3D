@@ -12,7 +12,8 @@
       "mcp__funplay__get_compilation_errors",
       "mcp__funplay__enter_play_mode",
       "mcp__funplay__capture_game_view",
-      "mcp__funplay__exit_play_mode"
+      "mcp__funplay__exit_play_mode",
+      "Bash(C:\\\\Users\\\\wuyeu\\\\.local\\\\bin\\\\uvx.exe python *)"
     ]
   }
 }
